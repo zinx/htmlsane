@@ -1,0 +1,5 @@
+Propagate notAllowed correctly
+	in group/oneOrMore/element/attribute -> return notAllowed for group
+	only thing in choice -> return notAllowed
+	only thing in interleave/optional/zeroOrMore -> return NULL
+	otherwise, remove the notAllowed.

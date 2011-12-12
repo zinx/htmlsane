@@ -1,0 +1,28 @@
+... musings on a syntax for element/attribute/css validation/limitations.
+
+attributes:
+	elements:	element (,element)*
+	attrs:		attr (,attr)*
+	rule var:	elements.attrs
+	operations:	< > != =
+			+ - * /
+			:=			assignment
+			()
+			=~ (in operator)
+			and() or() xor()
+			each(list,operation)
+			|   (like in regex)
+
+	units:		postfix: em px * %
+			operator: rgba(,,,) rgb(,,) url()
+			prefix: #
+	types:		numeric (with unit/unitless)
+			color
+			string
+			styles
+			url
+			nmtoken (string)
+			comma-separated strings
+			space-separated strings
+			hyphen-separated strings (LanguageCode)
+			INVALID

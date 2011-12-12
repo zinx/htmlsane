@@ -1,0 +1,5231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- XHTML 1.1 DTD  ........................................................ -->
+<!-- file: xhtml11.dtd -->
+<!--
+  XHTML 1.1 DTD
+  
+  This is XHTML, a reformulation of HTML as a modular XML application.
+  
+  The Extensible HyperText Markup Language (XHTML)
+  Copyright 1998-2000 World Wide Web Consortium
+     (Massachusetts Institute of Technology, Institut National de
+      Recherche en Informatique et en Automatique, Keio University).
+      All Rights Reserved.
+  
+  Permission to use, copy, modify and distribute the XHTML DTD and its 
+  accompanying documentation for any purpose and without fee is hereby 
+  granted in perpetuity, provided that the above copyright notice and 
+  this paragraph appear in all copies.  The copyright holders make no 
+  representation about the suitability of the DTD for any purpose.
+  
+  It is provided "as is" without expressed or implied warranty.
+  
+     Author:     Murray M. Altheim <altheim@eng.sun.com>
+     Revision:   $Id: xhtml11.dtd,v 1.20 2001/04/05 14:20:51 ahby Exp $
+  
+-->
+<!--
+  This is the driver file for version 1.1 of the XHTML DTD.
+  
+  Please use this formal public identifier to identify it:
+  
+      "-//W3C//DTD XHTML 1.1//EN"
+-->
+<!--
+  Use this URI to identify the default namespace:
+  
+      "http://www.w3.org/1999/xhtml"
+  
+  See the Qualified Names module for information
+  on the use of namespace prefixes in the DTD.
+-->
+<!-- Reserved for use with the XLink namespace: -->
+<grammar ns="http://www.w3.org/1999/xhtml" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="XLINK.xmlns.attrib">
+    <notAllowed/>
+  </define>
+  <!--
+    For example, if you are using XHTML 1.1 directly, use the FPI
+    in the DOCTYPE declaration, with the xmlns attribute on the
+    document element to identify the default namespace:
+    
+      <?xml version="1.0"?>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml"
+            xml:lang="en">
+      ...
+      </html>
+    
+    Revisions:
+    (none)
+  -->
+  <!-- reserved for future use with document profiles -->
+  <!--
+    Bidirectional Text features
+    This feature-test entity is used to declare elements
+    and attributes used for bidirectional text support.
+  -->
+  <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <!-- Pre-Framework Redeclaration placeholder  .................... -->
+  <!--
+    this serves as a location to insert markup declarations
+    into the DTD prior to the framework declarations.
+  -->
+  <!-- Inline Style Module  ........................................ -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Inline Style Module  ........................................... -->
+  <!--
+    file: xhtml-inlstyle-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-inlstyle-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML Inline Style 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-inlstyle-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Inline Style
+    
+    This module declares the 'style' attribute, used to support inline
+    style markup. This module must be instantiated prior to the XHTML
+    Common Attributes module in order to be included in %Core.attrib;.
+  -->
+  <define name="style.attrib">
+    <optional>
+      <attribute name="style"/>
+    </optional>
+  </define>
+  <define name="Core.extra.attrib">
+    <ref name="style.attrib"/>
+  </define>
+  <!-- end of xhtml-inlstyle-1.mod -->
+  <!-- declare Document Model module instantiated in framework -->
+  <!-- Modular Framework Module (required) ......................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Modular Framework Module  ...................................... -->
+  <!--
+    file: xhtml-framework-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-framework-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML Modular Framework 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-framework-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Modular Framework
+    
+    This required module instantiates the modules needed
+    to support the XHTML modularization model, including:
+    
+       +  notations
+       +  datatypes
+       +  namespace-qualified names
+       +  common attributes
+       +  document model
+       +  character entities
+    
+    The Intrinsic Events module is ignored by default but
+    occurs in this module because it must be instantiated
+    prior to Attributes but after Datatypes.
+  -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Notations Module  .............................................. -->
+  <!--
+    file: xhtml-notations-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-notations-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//NOTATIONS XHTML Notations 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-notations-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Notations
+    
+    defines the following notations, many of these imported from
+    other specifications and standards. When an existing FPI is
+    known, it is incorporated here.
+  -->
+  <!-- XML Notations ..................................... -->
+  <!-- SGML and XML Notations ............................ -->
+  <!-- W3C XML 1.0 Recommendation -->
+  <!-- XML 1.0 CDATA -->
+  <!-- SGML Formal Public Identifiers -->
+  <!-- XHTML Notations ................................... -->
+  <!-- Length defined for cellpadding/cellspacing -->
+  <!-- nn for pixels or nn% for percentage length -->
+  <!-- space-separated list of link types -->
+  <!-- single or comma-separated list of media descriptors -->
+  <!-- pixel, percentage, or relative -->
+  <!-- one or more digits (NUMBER) -->
+  <!-- integer representing length in pixels -->
+  <!-- script expression -->
+  <!-- textual content -->
+  <!-- Imported Notations ................................ -->
+  <!-- a single character from [ISO10646] -->
+  <!-- a character encoding, as per [RFC2045] -->
+  <!-- a space separated list of character encodings, as per [RFC2045] -->
+  <!-- media type, as per [RFC2045] -->
+  <!-- comma-separated list of media types, as per [RFC2045] -->
+  <!-- date and time information. ISO date format -->
+  <!-- a language code, as per [RFC3066] -->
+  <!-- a Uniform Resource Identifier, see [URI] -->
+  <!-- a space-separated list of Uniform Resource Identifiers, see [URI] -->
+  <!-- end of xhtml-notations-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Datatypes Module  .............................................. -->
+  <!--
+    file: xhtml-datatypes-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-datatypes-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML Datatypes 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-datatypes-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Datatypes
+    
+    defines containers for the following datatypes, many of
+    these imported from other specifications and standards.
+  -->
+  <!-- Length defined for cellpadding/cellspacing -->
+  <!-- nn for pixels or nn% for percentage length -->
+  <define name="Length.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- space-separated list of link types -->
+  <define name="LinkTypes.datatype">
+    <data type="NMTOKENS"/>
+  </define>
+  <!-- single or comma-separated list of media descriptors -->
+  <define name="MediaDesc.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- pixel, percentage, or relative -->
+  <define name="MultiLength.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- one or more digits (NUMBER) -->
+  <define name="Number.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- integer representing length in pixels -->
+  <define name="Pixels.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- script expression -->
+  <define name="Script.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- textual content -->
+  <define name="Text.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- Imported Datatypes ................................ -->
+  <!-- a single character from [ISO10646] -->
+  <define name="Character.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- a character encoding, as per [RFC2045] -->
+  <define name="Charset.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- a space separated list of character encodings, as per [RFC2045] -->
+  <define name="Charsets.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- media type, as per [RFC2045] -->
+  <define name="ContentType.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- comma-separated list of media types, as per [RFC2045] -->
+  <define name="ContentTypes.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- date and time information. ISO date format -->
+  <define name="Datetime.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- formal public identifier, as per [ISO8879] -->
+  <define name="FPI.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- a language code, as per [RFC3066] -->
+  <define name="LanguageCode.datatype">
+    <data type="NMTOKEN"/>
+  </define>
+  <!-- a Uniform Resource Identifier, see [URI] -->
+  <define name="URI.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- a space-separated list of Uniform Resource Identifiers, see [URI] -->
+  <define name="URIs.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <!-- end of xhtml-datatypes-1.mod -->
+  <!-- placeholder for XLink support module -->
+  <!-- ....................................................................... -->
+  <!-- XHTML Qname Module  ................................................... -->
+  <!--
+    file: xhtml-qname-1.mod
+    
+         This is XHTML, a reformulation of HTML as a modular XML application.
+         Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+         Revision: $Id: xhtml-qname-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+         This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+           PUBLIC "-//W3C//ENTITIES XHTML Qualified Names 1.0//EN"
+           SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-qname-1.mod"
+    
+         Revisions:
+    #2000-10-22: added qname declarations for ruby elements
+         .......................................................................
+  -->
+  <!--
+    XHTML Qname (Qualified Name) Module
+    
+    This module is contained in two parts, labeled Section 'A' and 'B':
+    
+      Section A declares parameter entities to support namespace-
+      qualified names, namespace declarations, and name prefixing
+      for XHTML and extensions.
+    
+      Section B declares parameter entities used to provide
+      namespace-qualified names for all XHTML element types:
+    
+        %applet.qname;   the xmlns-qualified name for <applet>
+        %base.qname;     the xmlns-qualified name for <base>
+        ...
+    
+    XHTML extensions would create a module similar to this one.
+    Included in the XHTML distribution is a template module
+    ('template-qname-1.mod') suitable for this purpose.
+  -->
+  <!-- Section A: XHTML XML Namespace Framework :::::::::::::::::::: -->
+  <!--
+    1. Declare a %XHTML.prefixed; conditional section keyword, used
+    to activate namespace prefixing. The default value should
+    inherit '%NS.prefixed;' from the DTD driver, so that unless
+    overridden, the default behaviour follows the overall DTD
+    prefixing scheme.
+  -->
+  <!--
+    2. Declare a parameter entity (eg., %XHTML.xmlns;) containing
+    the URI reference used to identify the XHTML namespace:
+  -->
+  <!--
+    3. Declare parameter entities (eg., %XHTML.prefix;) containing
+       the default namespace prefix string(s) to use when prefixing
+       is enabled. This may be overridden in the DTD driver or the
+       internal subset of an document instance. If no default prefix
+       is desired, this may be declared as an empty string.
+    
+    NOTE: As specified in [XMLNAMES], the namespace prefix serves
+    as a proxy for the URI reference, and is not in itself significant.
+  -->
+  <!--
+    4. Declare parameter entities (eg., %XHTML.pfx;) containing the
+    colonized prefix(es) (eg., '%XHTML.prefix;:') used when
+    prefixing is active, an empty string when it is not.
+  -->
+  <!-- declare qualified name extensions here ............ -->
+  <!--
+    5. The parameter entity %XHTML.xmlns.extra.attrib; may be
+    redeclared to contain any non-XHTML namespace declaration
+    attributes for namespaces embedded in XHTML. The default
+    is an empty string.  XLink should be included here if used
+    in the DTD.
+  -->
+  <!-- The remainder of Section A is only followed in XHTML, not extensions. -->
+  <!--
+    Declare a parameter entity %NS.decl.attrib; containing
+    all XML Namespace declarations used in the DTD, plus the
+    xmlns declaration for XHTML, its form dependent on whether
+    prefixing is active.
+  -->
+  <!-- This is a placeholder for future XLink support. -->
+  <!--
+    Declare a parameter entity %NS.decl.attrib; containing all
+    XML namespace declaration attributes used by XHTML, including
+    a default xmlns attribute when prefixing is inactive.
+  -->
+  <define name="XHTML.xmlns.attrib">
+    <ref name="XLINK.xmlns.attrib"/>
+  </define>
+  <!-- placeholder for qualified name redeclarations -->
+  <!-- Section B: XHTML Qualified Names ::::::::::::::::::::::::::::: -->
+  <!--
+    6. This section declares parameter entities used to provide
+    namespace-qualified names for all XHTML element types.
+  -->
+  <!-- module:  xhtml-applet-1.mod -->
+  <!-- module:  xhtml-base-1.mod -->
+  <!-- module:  xhtml-bdo-1.mod -->
+  <!-- module:  xhtml-blkphras-1.mod -->
+  <!-- module:  xhtml-blkpres-1.mod -->
+  <!-- module:  xhtml-blkstruct-1.mod -->
+  <!-- module:  xhtml-edit-1.mod -->
+  <!-- module:  xhtml-form-1.mod -->
+  <!-- module:  xhtml-hypertext-1.mod -->
+  <!-- module:  xhtml-image-1.mod -->
+  <!-- module:  xhtml-inlphras-1.mod -->
+  <!-- module:  xhtml-inlpres-1.mod -->
+  <!-- module:  xhtml-inlstruct-1.mod -->
+  <!-- module:  xhtml-ismap-1.mod (also csismap, ssismap) -->
+  <!-- module:  xhtml-link-1.mod -->
+  <!-- module:  xhtml-list-1.mod -->
+  <!-- module:  xhtml-meta-1.mod -->
+  <!-- module:  xhtml-param-1.mod -->
+  <!-- module:  xhtml-object-1.mod -->
+  <!-- module:  xhtml-script-1.mod -->
+  <!-- module:  xhtml-struct-1.mod -->
+  <!-- module:  xhtml-style-1.mod -->
+  <!-- module:  xhtml-table-1.mod -->
+  <!-- module:  xhtml-ruby-1.mod -->
+  <!-- Provisional XHTML 2.0 Qualified Names  ...................... -->
+  <!-- module:  xhtml-image-2.mod -->
+  <!-- end of xhtml-qname-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Intrinsic Events Module  ....................................... -->
+  <!--
+    file: xhtml-events-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-events-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML Intrinsic Events 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-events-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Intrinsic Event Attributes
+    
+     These are the event attributes defined in HTML 4.0,
+     Section 18.2.3 "Intrinsic Events". This module must be
+     instantiated prior to the Attributes Module but after
+     the Datatype Module in the Modular Framework module.
+    
+    "Note: Authors of HTML documents are advised that changes
+     are likely to occur in the realm of intrinsic events
+     (e.g., how scripts are bound to events). Research in
+     this realm is carried on by members of the W3C Document
+     Object Model Working Group (see the W3C Web site at
+     http://www.w3.org/ for more information)."
+  -->
+  <!--
+    NOTE: Because the ATTLIST declarations in this module occur
+    before their respective ELEMENT declarations in other
+    modules, there may be a dependency on this module that
+    should be considered if any of the parameter entities used
+    for element type names (eg., %a.qname;) are redeclared.
+  -->
+  <define name="Events.attrib">
+    <optional>
+      <attribute name="onclick">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="ondblclick">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onmousedown">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onmouseup">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onmouseover">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onmousemove">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onmouseout">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onkeypress">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onkeydown">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onkeyup">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on anchor element -->
+  <define name="a.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on form element -->
+  <define name="form.attlist" combine="interleave">
+    <optional>
+      <attribute name="onsubmit">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onreset">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on label element -->
+  <define name="label.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on input element -->
+  <define name="input.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onselect">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onchange">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on select element -->
+  <define name="select.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onchange">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on textarea element -->
+  <define name="textarea.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onselect">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onchange">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on button element -->
+  <define name="button.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on body element -->
+  <define name="body.attlist" combine="interleave">
+    <optional>
+      <attribute name="onload">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onunload">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- additional attributes on area element -->
+  <define name="area.attlist" combine="interleave">
+    <optional>
+      <attribute name="onfocus">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="onblur">
+        <ref name="Script.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of xhtml-events-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Common Attributes Module  ...................................... -->
+  <!--
+    file: xhtml-attribs-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-attribs-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML Common Attributes 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-attribs-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Common Attributes
+    
+    This module declares many of the common attributes for the XHTML DTD.
+    %NS.decl.attrib; is declared in the XHTML Qname module.
+  -->
+  <define name="id.attrib">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="class.attrib">
+    <optional>
+      <attribute name="class">
+        <data type="NMTOKENS"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="title.attrib">
+    <optional>
+      <attribute name="title">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="Core.attrib">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="id.attrib"/>
+    <ref name="class.attrib"/>
+    <ref name="title.attrib"/>
+    <ref name="Core.extra.attrib"/>
+  </define>
+  <define name="lang.attrib">
+    <optional>
+      <attribute name="xml:lang">
+        <ref name="LanguageCode.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="dir.attrib">
+    <optional>
+      <attribute name="dir">
+        <choice>
+          <value>ltr</value>
+          <value>rtl</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="I18n.attrib">
+    <ref name="dir.attrib"/>
+    <ref name="lang.attrib"/>
+  </define>
+  <define name="Common.extra.attrib">
+    <notAllowed/>
+  </define>
+  <!-- intrinsic event attributes declared previously -->
+  <define name="Common.attrib">
+    <ref name="Core.attrib"/>
+    <ref name="I18n.attrib"/>
+    <ref name="Events.attrib"/>
+    <ref name="Common.extra.attrib"/>
+  </define>
+  <!-- end of xhtml-attribs-1.mod -->
+  <!-- placeholder for content model redeclarations -->
+  <!-- instantiate the Document Model module declared in the DTD driver -->
+  <!-- ....................................................................... -->
+  <!-- XHTML 1.1 Document Model Module  ...................................... -->
+  <!--
+    file: xhtml11-model-1.mod
+    
+    This is XHTML 1.1, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2000 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml11-model-1.mod,v 1.12 2000/11/18 18:20:25 ahby Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML 1.1 Document Model 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml11/DTD/xhtml11-model-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    XHTML 1.1 Document Model
+    
+    This module describes the groupings of elements that make up
+    common content models for XHTML elements.
+    
+    XHTML has three basic content models:
+    
+        %Inline.mix;  character-level elements
+        %Block.mix;   block-like elements, eg., paragraphs and lists
+        %Flow.mix;    any block or inline elements
+    
+    Any parameter entities declared in this module may be used
+    to create element content models, but the above three are
+    considered 'global' (insofar as that term applies here).
+    
+    The reserved word '#PCDATA' (indicating a text string) is now
+    included explicitly with each element declaration that is
+    declared as mixed content, as XML requires that this token
+    occur first in a content model specification.
+  -->
+  <!--
+    Extending the Model
+    
+    While in some cases this module may need to be rewritten to
+    accommodate changes to the document model, minor extensions
+    may be accomplished by redeclaring any of the three *.extra;
+    parameter entities to contain extension element types as follows:
+    
+        %Misc.extra;    whose parent may be any block or
+                        inline element.
+    
+        %Inline.extra;  whose parent may be any inline element.
+    
+        %Block.extra;   whose parent may be any block element.
+    
+    If used, these parameter entities must be an OR-separated
+    list beginning with an OR separator ("|"), eg., "| a | b | c"
+    
+    All block and inline *.class parameter entities not part
+    of the *struct.class classes begin with "| " to allow for
+    exclusion from mixes.
+  -->
+  <!-- ..............  Optional Elements in head  .................. -->
+  <define name="HeadOpts.mix">
+    <zeroOrMore>
+      <choice>
+        <ref name="script"/>
+        <ref name="style"/>
+        <ref name="meta"/>
+        <ref name="link"/>
+        <ref name="object"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <!-- .................  Miscellaneous Elements  .................. -->
+  <!-- ins and del are used to denote editing changes -->
+  <define name="Edit.class">
+    <choice>
+      <ref name="ins"/>
+      <ref name="del"/>
+    </choice>
+  </define>
+  <!--
+    script and noscript are used to contain scripts
+    and alternative content
+  -->
+  <define name="Script.class">
+    <choice>
+      <ref name="script"/>
+      <ref name="noscript"/>
+    </choice>
+  </define>
+  <define name="Misc.extra">
+    <notAllowed/>
+  </define>
+  <!--
+    These elements are neither block nor inline, and can
+    essentially be used anywhere in the document body.
+  -->
+  <define name="Misc.class">
+    <choice>
+      <ref name="Edit.class"/>
+      <ref name="Script.class"/>
+      <ref name="Misc.extra"/>
+    </choice>
+  </define>
+  <!-- ....................  Inline Elements  ...................... -->
+  <define name="InlStruct.class">
+    <choice>
+      <ref name="br"/>
+      <ref name="span"/>
+    </choice>
+  </define>
+  <define name="InlPhras.class">
+    <choice>
+      <ref name="em"/>
+      <ref name="strong"/>
+      <ref name="dfn"/>
+      <ref name="code"/>
+      <ref name="samp"/>
+      <ref name="kbd"/>
+      <ref name="var"/>
+      <ref name="cite"/>
+      <ref name="abbr"/>
+      <ref name="acronym"/>
+      <ref name="q"/>
+    </choice>
+  </define>
+  <define name="InlPres.class">
+    <choice>
+      <ref name="tt"/>
+      <ref name="i"/>
+      <ref name="b"/>
+      <ref name="big"/>
+      <ref name="small"/>
+      <ref name="sub"/>
+      <ref name="sup"/>
+    </choice>
+  </define>
+  <define name="I18n.class">
+    <ref name="bdo"/>
+  </define>
+  <define name="Anchor.class">
+    <ref name="a"/>
+  </define>
+  <define name="InlSpecial.class">
+    <choice>
+      <ref name="img"/>
+      <ref name="map"/>
+      <ref name="object"/>
+    </choice>
+  </define>
+  <define name="InlForm.class">
+    <choice>
+      <ref name="input"/>
+      <ref name="select"/>
+      <ref name="textarea"/>
+      <ref name="label"/>
+      <ref name="button"/>
+    </choice>
+  </define>
+  <define name="Inline.extra">
+    <notAllowed/>
+  </define>
+  <define name="Ruby.class">
+    <ref name="ruby"/>
+  </define>
+  <!--
+    %Inline.class; includes all inline elements,
+    used as a component in mixes
+  -->
+  <define name="Inline.class">
+    <choice>
+      <ref name="InlStruct.class"/>
+      <ref name="InlPhras.class"/>
+      <ref name="InlPres.class"/>
+      <ref name="I18n.class"/>
+      <ref name="Anchor.class"/>
+      <ref name="InlSpecial.class"/>
+      <ref name="InlForm.class"/>
+      <ref name="Ruby.class"/>
+      <ref name="Inline.extra"/>
+    </choice>
+  </define>
+  <!--
+    %InlNoRuby.class; includes all inline elements
+    except ruby, used as a component in mixes
+  -->
+  <define name="InlNoRuby.class">
+    <choice>
+      <ref name="InlStruct.class"/>
+      <ref name="InlPhras.class"/>
+      <ref name="InlPres.class"/>
+      <ref name="I18n.class"/>
+      <ref name="Anchor.class"/>
+      <ref name="InlSpecial.class"/>
+      <ref name="InlForm.class"/>
+      <ref name="Inline.extra"/>
+    </choice>
+  </define>
+  <!-- %NoRuby.content; includes all inlines except ruby -->
+  <define name="NoRuby.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="InlNoRuby.class"/>
+        <ref name="Misc.class"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <!--
+    %InlNoAnchor.class; includes all non-anchor inlines,
+    used as a component in mixes
+  -->
+  <define name="InlNoAnchor.class">
+    <choice>
+      <ref name="InlStruct.class"/>
+      <ref name="InlPhras.class"/>
+      <ref name="InlPres.class"/>
+      <ref name="I18n.class"/>
+      <ref name="InlSpecial.class"/>
+      <ref name="InlForm.class"/>
+      <ref name="Ruby.class"/>
+      <ref name="Inline.extra"/>
+    </choice>
+  </define>
+  <!-- %InlNoAnchor.mix; includes all non-anchor inlines -->
+  <define name="InlNoAnchor.mix">
+    <choice>
+      <ref name="InlNoAnchor.class"/>
+      <ref name="Misc.class"/>
+    </choice>
+  </define>
+  <!-- %Inline.mix; includes all inline elements, including %Misc.class; -->
+  <define name="Inline.mix">
+    <choice>
+      <ref name="Inline.class"/>
+      <ref name="Misc.class"/>
+    </choice>
+  </define>
+  <!-- .....................  Block Elements  ...................... -->
+  <!--
+    In the HTML 4.0 DTD, heading and list elements were included
+    in the %block; parameter entity. The %Heading.class; and
+    %List.class; parameter entities must now be included explicitly
+    on element declarations where desired.
+  -->
+  <define name="Heading.class">
+    <choice>
+      <ref name="h1"/>
+      <ref name="h2"/>
+      <ref name="h3"/>
+      <ref name="h4"/>
+      <ref name="h5"/>
+      <ref name="h6"/>
+    </choice>
+  </define>
+  <define name="List.class">
+    <choice>
+      <ref name="ul"/>
+      <ref name="ol"/>
+      <ref name="dl"/>
+    </choice>
+  </define>
+  <define name="Table.class">
+    <ref name="table"/>
+  </define>
+  <define name="Form.class">
+    <ref name="form"/>
+  </define>
+  <define name="Fieldset.class">
+    <ref name="fieldset"/>
+  </define>
+  <define name="BlkStruct.class">
+    <choice>
+      <ref name="p"/>
+      <ref name="div"/>
+    </choice>
+  </define>
+  <define name="BlkPhras.class">
+    <choice>
+      <ref name="pre"/>
+      <ref name="blockquote"/>
+      <ref name="address"/>
+    </choice>
+  </define>
+  <define name="BlkPres.class">
+    <ref name="hr"/>
+  </define>
+  <define name="BlkSpecial.class">
+    <choice>
+      <ref name="Table.class"/>
+      <ref name="Form.class"/>
+      <ref name="Fieldset.class"/>
+    </choice>
+  </define>
+  <define name="Block.extra">
+    <notAllowed/>
+  </define>
+  <!--
+    %Block.class; includes all block elements,
+    used as an component in mixes
+  -->
+  <define name="Block.class">
+    <choice>
+      <ref name="BlkStruct.class"/>
+      <ref name="BlkPhras.class"/>
+      <ref name="BlkPres.class"/>
+      <ref name="BlkSpecial.class"/>
+      <ref name="Block.extra"/>
+    </choice>
+  </define>
+  <!-- %Block.mix; includes all block elements plus %Misc.class; -->
+  <define name="Block.mix">
+    <choice>
+      <ref name="Heading.class"/>
+      <ref name="List.class"/>
+      <ref name="Block.class"/>
+      <ref name="Misc.class"/>
+    </choice>
+  </define>
+  <!-- ................  All Content Elements  .................. -->
+  <!-- %Flow.mix; includes all text content, block and inline -->
+  <define name="Flow.mix">
+    <choice>
+      <ref name="Heading.class"/>
+      <ref name="List.class"/>
+      <ref name="Block.class"/>
+      <ref name="Inline.class"/>
+      <ref name="Misc.class"/>
+    </choice>
+  </define>
+  <!-- end of xhtml11-model-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Character Entities Module  ......................................... -->
+  <!--
+    file: xhtml-charent-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-charent-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ENTITIES XHTML Character Entities 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-charent-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Character Entities for XHTML
+    
+    This module declares the set of character entities for XHTML,
+    including the Latin 1, Symbol and Special character collections.
+  -->
+  <!--
+    Portions (C) International Organization for Standardization 1986
+    Permission to copy in any form is granted for use with
+    conforming SGML systems and applications as defined in
+    ISO 8879, provided this notice is included in all copies.
+  -->
+  <!--
+    Character entity set. Typical invocation:
+    <!ENTITY % HTMLlat1 PUBLIC
+       "-//W3C//ENTITIES Latin 1 for XHTML//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">
+    %HTMLlat1;
+  -->
+  <!--
+    no-break space = non-breaking space,
+    U+00A0 ISOnum
+  -->
+  <!-- inverted exclamation mark, U+00A1 ISOnum -->
+  <!-- cent sign, U+00A2 ISOnum -->
+  <!-- pound sign, U+00A3 ISOnum -->
+  <!-- currency sign, U+00A4 ISOnum -->
+  <!-- yen sign = yuan sign, U+00A5 ISOnum -->
+  <!--
+    broken bar = broken vertical bar,
+    U+00A6 ISOnum
+  -->
+  <!-- section sign, U+00A7 ISOnum -->
+  <!--
+    diaeresis = spacing diaeresis,
+    U+00A8 ISOdia
+  -->
+  <!-- copyright sign, U+00A9 ISOnum -->
+  <!-- feminine ordinal indicator, U+00AA ISOnum -->
+  <!--
+    left-pointing double angle quotation mark
+    = left pointing guillemet, U+00AB ISOnum
+  -->
+  <!--
+    not sign = discretionary hyphen,
+    U+00AC ISOnum
+  -->
+  <!--
+    soft hyphen = discretionary hyphen,
+    U+00AD ISOnum
+  -->
+  <!--
+    registered sign = registered trade mark sign,
+    U+00AE ISOnum
+  -->
+  <!--
+    macron = spacing macron = overline
+    = APL overbar, U+00AF ISOdia
+  -->
+  <!-- degree sign, U+00B0 ISOnum -->
+  <!--
+    plus-minus sign = plus-or-minus sign,
+    U+00B1 ISOnum
+  -->
+  <!--
+    superscript two = superscript digit two
+    = squared, U+00B2 ISOnum
+  -->
+  <!--
+    superscript three = superscript digit three
+    = cubed, U+00B3 ISOnum
+  -->
+  <!--
+    acute accent = spacing acute,
+    U+00B4 ISOdia
+  -->
+  <!-- micro sign, U+00B5 ISOnum -->
+  <!--
+    pilcrow sign = paragraph sign,
+    U+00B6 ISOnum
+  -->
+  <!--
+    middle dot = Georgian comma
+    = Greek middle dot, U+00B7 ISOnum
+  -->
+  <!-- cedilla = spacing cedilla, U+00B8 ISOdia -->
+  <!--
+    superscript one = superscript digit one,
+    U+00B9 ISOnum
+  -->
+  <!--
+    masculine ordinal indicator,
+    U+00BA ISOnum
+  -->
+  <!--
+    right-pointing double angle quotation mark
+    = right pointing guillemet, U+00BB ISOnum
+  -->
+  <!--
+    vulgar fraction one quarter
+    = fraction one quarter, U+00BC ISOnum
+  -->
+  <!--
+    vulgar fraction one half
+    = fraction one half, U+00BD ISOnum
+  -->
+  <!--
+    vulgar fraction three quarters
+    = fraction three quarters, U+00BE ISOnum
+  -->
+  <!--
+    inverted question mark
+    = turned question mark, U+00BF ISOnum
+  -->
+  <!--
+    latin capital letter A with grave
+    = latin capital letter A grave,
+    U+00C0 ISOlat1
+  -->
+  <!--
+    latin capital letter A with acute,
+    U+00C1 ISOlat1
+  -->
+  <!--
+    latin capital letter A with circumflex,
+    U+00C2 ISOlat1
+  -->
+  <!--
+    latin capital letter A with tilde,
+    U+00C3 ISOlat1
+  -->
+  <!--
+    latin capital letter A with diaeresis,
+    U+00C4 ISOlat1
+  -->
+  <!--
+    latin capital letter A with ring above
+    = latin capital letter A ring,
+    U+00C5 ISOlat1
+  -->
+  <!--
+    latin capital letter AE
+    = latin capital ligature AE,
+    U+00C6 ISOlat1
+  -->
+  <!--
+    latin capital letter C with cedilla,
+    U+00C7 ISOlat1
+  -->
+  <!--
+    latin capital letter E with grave,
+    U+00C8 ISOlat1
+  -->
+  <!--
+    latin capital letter E with acute,
+    U+00C9 ISOlat1
+  -->
+  <!--
+    latin capital letter E with circumflex,
+    U+00CA ISOlat1
+  -->
+  <!--
+    latin capital letter E with diaeresis,
+    U+00CB ISOlat1
+  -->
+  <!--
+    latin capital letter I with grave,
+    U+00CC ISOlat1
+  -->
+  <!--
+    latin capital letter I with acute,
+    U+00CD ISOlat1
+  -->
+  <!--
+    latin capital letter I with circumflex,
+    U+00CE ISOlat1
+  -->
+  <!--
+    latin capital letter I with diaeresis,
+    U+00CF ISOlat1
+  -->
+  <!-- latin capital letter ETH, U+00D0 ISOlat1 -->
+  <!--
+    latin capital letter N with tilde,
+    U+00D1 ISOlat1
+  -->
+  <!--
+    latin capital letter O with grave,
+    U+00D2 ISOlat1
+  -->
+  <!--
+    latin capital letter O with acute,
+    U+00D3 ISOlat1
+  -->
+  <!--
+    latin capital letter O with circumflex,
+    U+00D4 ISOlat1
+  -->
+  <!--
+    latin capital letter O with tilde,
+    U+00D5 ISOlat1
+  -->
+  <!--
+    latin capital letter O with diaeresis,
+    U+00D6 ISOlat1
+  -->
+  <!-- multiplication sign, U+00D7 ISOnum -->
+  <!--
+    latin capital letter O with stroke
+    = latin capital letter O slash,
+    U+00D8 ISOlat1
+  -->
+  <!--
+    latin capital letter U with grave,
+    U+00D9 ISOlat1
+  -->
+  <!--
+    latin capital letter U with acute,
+    U+00DA ISOlat1
+  -->
+  <!--
+    latin capital letter U with circumflex,
+    U+00DB ISOlat1
+  -->
+  <!--
+    latin capital letter U with diaeresis,
+    U+00DC ISOlat1
+  -->
+  <!--
+    latin capital letter Y with acute,
+    U+00DD ISOlat1
+  -->
+  <!--
+    latin capital letter THORN,
+    U+00DE ISOlat1
+  -->
+  <!--
+    latin small letter sharp s = ess-zed,
+    U+00DF ISOlat1
+  -->
+  <!--
+    latin small letter a with grave
+    = latin small letter a grave,
+    U+00E0 ISOlat1
+  -->
+  <!--
+    latin small letter a with acute,
+    U+00E1 ISOlat1
+  -->
+  <!--
+    latin small letter a with circumflex,
+    U+00E2 ISOlat1
+  -->
+  <!--
+    latin small letter a with tilde,
+    U+00E3 ISOlat1
+  -->
+  <!--
+    latin small letter a with diaeresis,
+    U+00E4 ISOlat1
+  -->
+  <!--
+    latin small letter a with ring above
+    = latin small letter a ring,
+    U+00E5 ISOlat1
+  -->
+  <!--
+    latin small letter ae
+    = latin small ligature ae, U+00E6 ISOlat1
+  -->
+  <!--
+    latin small letter c with cedilla,
+    U+00E7 ISOlat1
+  -->
+  <!--
+    latin small letter e with grave,
+    U+00E8 ISOlat1
+  -->
+  <!--
+    latin small letter e with acute,
+    U+00E9 ISOlat1
+  -->
+  <!--
+    latin small letter e with circumflex,
+    U+00EA ISOlat1
+  -->
+  <!--
+    latin small letter e with diaeresis,
+    U+00EB ISOlat1
+  -->
+  <!--
+    latin small letter i with grave,
+    U+00EC ISOlat1
+  -->
+  <!--
+    latin small letter i with acute,
+    U+00ED ISOlat1
+  -->
+  <!--
+    latin small letter i with circumflex,
+    U+00EE ISOlat1
+  -->
+  <!--
+    latin small letter i with diaeresis,
+    U+00EF ISOlat1
+  -->
+  <!-- latin small letter eth, U+00F0 ISOlat1 -->
+  <!--
+    latin small letter n with tilde,
+    U+00F1 ISOlat1
+  -->
+  <!--
+    latin small letter o with grave,
+    U+00F2 ISOlat1
+  -->
+  <!--
+    latin small letter o with acute,
+    U+00F3 ISOlat1
+  -->
+  <!--
+    latin small letter o with circumflex,
+    U+00F4 ISOlat1
+  -->
+  <!--
+    latin small letter o with tilde,
+    U+00F5 ISOlat1
+  -->
+  <!--
+    latin small letter o with diaeresis,
+    U+00F6 ISOlat1
+  -->
+  <!-- division sign, U+00F7 ISOnum -->
+  <!--
+    latin small letter o with stroke,
+    = latin small letter o slash,
+    U+00F8 ISOlat1
+  -->
+  <!--
+    latin small letter u with grave,
+    U+00F9 ISOlat1
+  -->
+  <!--
+    latin small letter u with acute,
+    U+00FA ISOlat1
+  -->
+  <!--
+    latin small letter u with circumflex,
+    U+00FB ISOlat1
+  -->
+  <!--
+    latin small letter u with diaeresis,
+    U+00FC ISOlat1
+  -->
+  <!--
+    latin small letter y with acute,
+    U+00FD ISOlat1
+  -->
+  <!--
+    latin small letter thorn with,
+    U+00FE ISOlat1
+  -->
+  <!--
+    latin small letter y with diaeresis,
+    U+00FF ISOlat1
+  -->
+  <!-- Mathematical, Greek and Symbolic characters for HTML -->
+  <!--
+    Character entity set. Typical invocation:
+    <!ENTITY % HTMLsymbol PUBLIC
+       "-//W3C//ENTITIES Symbols for XHTML//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml-symbol.ent">
+    %HTMLsymbol;
+  -->
+  <!--
+    Portions (C) International Organization for Standardization 1986:
+    Permission to copy in any form is granted for use with
+    conforming SGML systems and applications as defined in
+    ISO 8879, provided this notice is included in all copies.
+  -->
+  <!--
+    Relevant ISO entity set is given unless names are newly introduced.
+    New names (i.e., not in ISO 8879 list) do not clash with any
+    existing ISO 8879 entity names. ISO 10646 character numbers
+    are given for each character, in hex. values are decimal
+    conversions of the ISO 10646 values and refer to the document
+    character set. Names are Unicode names. 
+  -->
+  <!-- Latin Extended-B -->
+  <!--
+    latin small f with hook = function
+    = florin, U+0192 ISOtech
+  -->
+  <!-- Greek -->
+  <!-- greek capital letter alpha, U+0391 -->
+  <!-- greek capital letter beta, U+0392 -->
+  <!--
+    greek capital letter gamma,
+    U+0393 ISOgrk3
+  -->
+  <!--
+    greek capital letter delta,
+    U+0394 ISOgrk3
+  -->
+  <!-- greek capital letter epsilon, U+0395 -->
+  <!-- greek capital letter zeta, U+0396 -->
+  <!-- greek capital letter eta, U+0397 -->
+  <!--
+    greek capital letter theta,
+    U+0398 ISOgrk3
+  -->
+  <!-- greek capital letter iota, U+0399 -->
+  <!-- greek capital letter kappa, U+039A -->
+  <!--
+    greek capital letter lambda,
+    U+039B ISOgrk3
+  -->
+  <!-- greek capital letter mu, U+039C -->
+  <!-- greek capital letter nu, U+039D -->
+  <!-- greek capital letter xi, U+039E ISOgrk3 -->
+  <!-- greek capital letter omicron, U+039F -->
+  <!-- greek capital letter pi, U+03A0 ISOgrk3 -->
+  <!-- greek capital letter rho, U+03A1 -->
+  <!-- there is no Sigmaf, and no U+03A2 character either -->
+  <!--
+    greek capital letter sigma,
+    U+03A3 ISOgrk3
+  -->
+  <!-- greek capital letter tau, U+03A4 -->
+  <!--
+    greek capital letter upsilon,
+    U+03A5 ISOgrk3
+  -->
+  <!--
+    greek capital letter phi,
+    U+03A6 ISOgrk3
+  -->
+  <!-- greek capital letter chi, U+03A7 -->
+  <!--
+    greek capital letter psi,
+    U+03A8 ISOgrk3
+  -->
+  <!--
+    greek capital letter omega,
+    U+03A9 ISOgrk3
+  -->
+  <!--
+    greek small letter alpha,
+    U+03B1 ISOgrk3
+  -->
+  <!-- greek small letter beta, U+03B2 ISOgrk3 -->
+  <!--
+    greek small letter gamma,
+    U+03B3 ISOgrk3
+  -->
+  <!--
+    greek small letter delta,
+    U+03B4 ISOgrk3
+  -->
+  <!--
+    greek small letter epsilon,
+    U+03B5 ISOgrk3
+  -->
+  <!-- greek small letter zeta, U+03B6 ISOgrk3 -->
+  <!-- greek small letter eta, U+03B7 ISOgrk3 -->
+  <!--
+    greek small letter theta,
+    U+03B8 ISOgrk3
+  -->
+  <!-- greek small letter iota, U+03B9 ISOgrk3 -->
+  <!--
+    greek small letter kappa,
+    U+03BA ISOgrk3
+  -->
+  <!--
+    greek small letter lambda,
+    U+03BB ISOgrk3
+  -->
+  <!-- greek small letter mu, U+03BC ISOgrk3 -->
+  <!-- greek small letter nu, U+03BD ISOgrk3 -->
+  <!-- greek small letter xi, U+03BE ISOgrk3 -->
+  <!-- greek small letter omicron, U+03BF NEW -->
+  <!-- greek small letter pi, U+03C0 ISOgrk3 -->
+  <!-- greek small letter rho, U+03C1 ISOgrk3 -->
+  <!--
+    greek small letter final sigma,
+    U+03C2 ISOgrk3
+  -->
+  <!--
+    greek small letter sigma,
+    U+03C3 ISOgrk3
+  -->
+  <!-- greek small letter tau, U+03C4 ISOgrk3 -->
+  <!--
+    greek small letter upsilon,
+    U+03C5 ISOgrk3
+  -->
+  <!-- greek small letter phi, U+03C6 ISOgrk3 -->
+  <!-- greek small letter chi, U+03C7 ISOgrk3 -->
+  <!-- greek small letter psi, U+03C8 ISOgrk3 -->
+  <!--
+    greek small letter omega,
+    U+03C9 ISOgrk3
+  -->
+  <!--
+    greek small letter theta symbol,
+    U+03D1 NEW
+  -->
+  <!--
+    greek upsilon with hook symbol,
+    U+03D2 NEW
+  -->
+  <!-- greek pi symbol, U+03D6 ISOgrk3 -->
+  <!-- General Punctuation -->
+  <!--
+    bullet = black small circle,
+    U+2022 ISOpub
+  -->
+  <!-- bullet is NOT the same as bullet operator, U+2219 -->
+  <!--
+    horizontal ellipsis = three dot leader,
+    U+2026 ISOpub
+  -->
+  <!-- prime = minutes = feet, U+2032 ISOtech -->
+  <!--
+    double prime = seconds = inches,
+    U+2033 ISOtech
+  -->
+  <!--
+    overline = spacing overscore,
+    U+203E NEW
+  -->
+  <!-- fraction slash, U+2044 NEW -->
+  <!-- Letterlike Symbols -->
+  <!--
+    script capital P = power set
+    = Weierstrass p, U+2118 ISOamso
+  -->
+  <!--
+    blackletter capital I = imaginary part,
+    U+2111 ISOamso
+  -->
+  <!--
+    blackletter capital R = real part symbol,
+    U+211C ISOamso
+  -->
+  <!-- trade mark sign, U+2122 ISOnum -->
+  <!--
+    alef symbol = first transfinite cardinal,
+    U+2135 NEW
+  -->
+  <!--
+    alef symbol is NOT the same as hebrew letter alef,
+    U+05D0 although the same glyph could be used to depict both characters
+  -->
+  <!-- Arrows -->
+  <!-- leftwards arrow, U+2190 ISOnum -->
+  <!--  upwards arrow, U+2191 ISOnum -->
+  <!-- rightwards arrow, U+2192 ISOnum -->
+  <!-- downwards arrow, U+2193 ISOnum -->
+  <!-- left right arrow, U+2194 ISOamsa -->
+  <!--
+    downwards arrow with corner leftwards
+    = carriage return, U+21B5 NEW
+  -->
+  <!-- leftwards double arrow, U+21D0 ISOtech -->
+  <!--
+    Unicode does not say that lArr is the same as the 'is implied by' arrow
+    but also does not have any other character for that function. So ? lArr can
+    be used for 'is implied by' as ISOtech suggests
+  -->
+  <!-- upwards double arrow, U+21D1 ISOamsa -->
+  <!--
+    rightwards double arrow,
+    U+21D2 ISOtech
+  -->
+  <!--
+    Unicode does not say this is the 'implies' character but does not have 
+    another character with this function so ?
+    rArr can be used for 'implies' as ISOtech suggests
+  -->
+  <!-- downwards double arrow, U+21D3 ISOamsa -->
+  <!--
+    left right double arrow,
+    U+21D4 ISOamsa
+  -->
+  <!-- Mathematical Operators -->
+  <!-- for all, U+2200 ISOtech -->
+  <!-- partial differential, U+2202 ISOtech -->
+  <!-- there exists, U+2203 ISOtech -->
+  <!--
+    empty set = null set = diameter,
+    U+2205 ISOamso
+  -->
+  <!--
+    nabla = backward difference,
+    U+2207 ISOtech
+  -->
+  <!-- element of, U+2208 ISOtech -->
+  <!-- not an element of, U+2209 ISOtech -->
+  <!-- contains as member, U+220B ISOtech -->
+  <!-- should there be a more memorable name than 'ni'? -->
+  <!--
+    n-ary product = product sign,
+    U+220F ISOamsb
+  -->
+  <!--
+    prod is NOT the same character as U+03A0 'greek capital letter pi' though
+    the same glyph might be used for both
+  -->
+  <!-- n-ary sumation, U+2211 ISOamsb -->
+  <!--
+    sum is NOT the same character as U+03A3 'greek capital letter sigma'
+    though the same glyph might be used for both
+  -->
+  <!-- minus sign, U+2212 ISOtech -->
+  <!-- asterisk operator, U+2217 ISOtech -->
+  <!--
+    square root = radical sign,
+    U+221A ISOtech
+  -->
+  <!-- proportional to, U+221D ISOtech -->
+  <!-- infinity, U+221E ISOtech -->
+  <!-- angle, U+2220 ISOamso -->
+  <!-- logical and = wedge, U+2227 ISOtech -->
+  <!-- logical or = vee, U+2228 ISOtech -->
+  <!-- intersection = cap, U+2229 ISOtech -->
+  <!-- union = cup, U+222A ISOtech -->
+  <!-- integral, U+222B ISOtech -->
+  <!-- therefore, U+2234 ISOtech -->
+  <!--
+    tilde operator = varies with = similar to,
+    U+223C ISOtech
+  -->
+  <!--
+    tilde operator is NOT the same character as the tilde, U+007E,
+    although the same glyph might be used to represent both
+  -->
+  <!-- approximately equal to, U+2245 ISOtech -->
+  <!--
+    almost equal to = asymptotic to,
+    U+2248 ISOamsr
+  -->
+  <!-- not equal to, U+2260 ISOtech -->
+  <!-- identical to, U+2261 ISOtech -->
+  <!-- less-than or equal to, U+2264 ISOtech -->
+  <!--
+    greater-than or equal to,
+    U+2265 ISOtech
+  -->
+  <!-- subset of, U+2282 ISOtech -->
+  <!-- superset of, U+2283 ISOtech -->
+  <!--
+    note that nsup, 'not a superset of, U+2283' is not covered by the Symbol 
+    font encoding and is not included. Should it be, for symmetry?
+    It is in ISOamsn
+  -->
+  <!-- not a subset of, U+2284 ISOamsn -->
+  <!-- subset of or equal to, U+2286 ISOtech -->
+  <!--
+    superset of or equal to,
+    U+2287 ISOtech
+  -->
+  <!--
+    circled plus = direct sum,
+    U+2295 ISOamsb
+  -->
+  <!--
+    circled times = vector product,
+    U+2297 ISOamsb
+  -->
+  <!--
+    up tack = orthogonal to = perpendicular,
+    U+22A5 ISOtech
+  -->
+  <!-- dot operator, U+22C5 ISOamsb -->
+  <!-- dot operator is NOT the same character as U+00B7 middle dot -->
+  <!-- Miscellaneous Technical -->
+  <!--
+    left ceiling = apl upstile,
+    U+2308 ISOamsc
+  -->
+  <!-- right ceiling, U+2309 ISOamsc -->
+  <!--
+    left floor = apl downstile,
+    U+230A ISOamsc
+  -->
+  <!-- right floor, U+230B ISOamsc -->
+  <!--
+    left-pointing angle bracket = bra,
+    U+2329 ISOtech
+  -->
+  <!--
+    lang is NOT the same character as U+003C 'less than' 
+    or U+2039 'single left-pointing angle quotation mark'
+  -->
+  <!--
+    right-pointing angle bracket = ket,
+    U+232A ISOtech
+  -->
+  <!--
+    rang is NOT the same character as U+003E 'greater than' 
+    or U+203A 'single right-pointing angle quotation mark'
+  -->
+  <!-- Geometric Shapes -->
+  <!-- lozenge, U+25CA ISOpub -->
+  <!-- Miscellaneous Symbols -->
+  <!-- black spade suit, U+2660 ISOpub -->
+  <!-- black here seems to mean filled as opposed to hollow -->
+  <!--
+    black club suit = shamrock,
+    U+2663 ISOpub
+  -->
+  <!--
+    black heart suit = valentine,
+    U+2665 ISOpub
+  -->
+  <!-- black diamond suit, U+2666 ISOpub -->
+  <!-- Special characters for HTML -->
+  <!--
+    Character entity set. Typical invocation:
+    <!ENTITY % HTMLspecial PUBLIC
+       "-//W3C//ENTITIES Special for XHTML//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent">
+    %HTMLspecial;
+  -->
+  <!--
+    Portions (C) International Organization for Standardization 1986:
+    Permission to copy in any form is granted for use with
+    conforming SGML systems and applications as defined in
+    ISO 8879, provided this notice is included in all copies.
+  -->
+  <!--
+    Relevant ISO entity set is given unless names are newly introduced.
+    New names (i.e., not in ISO 8879 list) do not clash with any
+    existing ISO 8879 entity names. ISO 10646 character numbers
+    are given for each character, in hex. values are decimal
+    conversions of the ISO 10646 values and refer to the document
+    character set. Names are Unicode names. 
+  -->
+  <!-- C0 Controls and Basic Latin -->
+  <!--
+    quotation mark = APL quote,
+    U+0022 ISOnum
+  -->
+  <!-- ampersand, U+0026 ISOnum -->
+  <!-- less-than sign, U+003C ISOnum -->
+  <!-- greater-than sign, U+003E ISOnum -->
+  <!-- apostrophe mark, U+0027 ISOnum -->
+  <!-- Latin Extended-A -->
+  <!--
+    latin capital ligature OE,
+    U+0152 ISOlat2
+  -->
+  <!-- latin small ligature oe, U+0153 ISOlat2 -->
+  <!-- ligature is a misnomer, this is a separate character in some languages -->
+  <!--
+    latin capital letter S with caron,
+    U+0160 ISOlat2
+  -->
+  <!--
+    latin small letter s with caron,
+    U+0161 ISOlat2
+  -->
+  <!--
+    latin capital letter Y with diaeresis,
+    U+0178 ISOlat2
+  -->
+  <!-- Spacing Modifier Letters -->
+  <!--
+    modifier letter circumflex accent,
+    U+02C6 ISOpub
+  -->
+  <!-- small tilde, U+02DC ISOdia -->
+  <!-- General Punctuation -->
+  <!-- en space, U+2002 ISOpub -->
+  <!-- em space, U+2003 ISOpub -->
+  <!-- thin space, U+2009 ISOpub -->
+  <!--
+    zero width non-joiner,
+    U+200C NEW RFC 2070
+  -->
+  <!-- zero width joiner, U+200D NEW RFC 2070 -->
+  <!-- left-to-right mark, U+200E NEW RFC 2070 -->
+  <!-- right-to-left mark, U+200F NEW RFC 2070 -->
+  <!-- en dash, U+2013 ISOpub -->
+  <!-- em dash, U+2014 ISOpub -->
+  <!--
+    left single quotation mark,
+    U+2018 ISOnum
+  -->
+  <!--
+    right single quotation mark,
+    U+2019 ISOnum
+  -->
+  <!-- single low-9 quotation mark, U+201A NEW -->
+  <!--
+    left double quotation mark,
+    U+201C ISOnum
+  -->
+  <!--
+    right double quotation mark,
+    U+201D ISOnum
+  -->
+  <!-- double low-9 quotation mark, U+201E NEW -->
+  <!-- dagger, U+2020 ISOpub -->
+  <!-- double dagger, U+2021 ISOpub -->
+  <!-- per mille sign, U+2030 ISOtech -->
+  <!--
+    single left-pointing angle quotation mark,
+    U+2039 ISO proposed
+  -->
+  <!-- lsaquo is proposed but not yet ISO standardized -->
+  <!--
+    single right-pointing angle quotation mark,
+    U+203A ISO proposed
+  -->
+  <!-- rsaquo is proposed but not yet ISO standardized -->
+  <!-- euro sign, U+20AC NEW -->
+  <!-- end of xhtml-charent-1.mod -->
+  <!-- end of xhtml-framework-1.mod -->
+  <!-- Post-Framework Redeclaration placeholder  ................... -->
+  <!--
+    this serves as a location to insert markup declarations
+    into the DTD following the framework declarations.
+  -->
+  <!-- Text Module (Required)  ..................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Text Module  ................................................... -->
+  <!--
+    file: xhtml-text-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-text-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Text 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-text-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Textual Content
+    
+    The Text module includes declarations for all core
+    text container elements and their attributes.
+  -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Inline Structural Module  ...................................... -->
+  <!--
+    file: xhtml-inlstruct-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-inlstruct-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Inline Structural 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-inlstruct-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Inline Structural
+    
+       br, span
+    
+    This module declares the elements and their attributes
+    used to support inline-level structural markup.
+  -->
+  <!-- br: forced line break ............................. -->
+  <define name="br.content">
+    <empty/>
+  </define>
+  <define name="br">
+    <element name="br">
+      <ref name="br.attlist"/>
+      <ref name="br.content"/>
+    </element>
+  </define>
+  <!-- end of br.element -->
+  <define name="br.attlist" combine="interleave">
+    <ref name="Core.attrib"/>
+  </define>
+  <!-- end of br.attlist -->
+  <!-- span: generic inline container .................... -->
+  <define name="span.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="span">
+    <element name="span">
+      <ref name="span.attlist"/>
+      <ref name="span.content"/>
+    </element>
+  </define>
+  <!-- end of span.element -->
+  <define name="span.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of span.attlist -->
+  <!-- end of xhtml-inlstruct-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Inline Phrasal Module  ......................................... -->
+  <!--
+    file: xhtml-inlphras-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-inlphras-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Inline Phrasal 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-inlphras-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Inline Phrasal
+    
+       abbr, acronym, cite, code, dfn, em, kbd, q, samp, strong, var
+    
+    This module declares the elements and their attributes used to
+    support inline-level phrasal markup.
+  -->
+  <define name="abbr.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="abbr">
+    <element name="abbr">
+      <ref name="abbr.attlist"/>
+      <ref name="abbr.content"/>
+    </element>
+  </define>
+  <!-- end of abbr.element -->
+  <define name="abbr.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of abbr.attlist -->
+  <define name="acronym.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="acronym">
+    <element name="acronym">
+      <ref name="acronym.attlist"/>
+      <ref name="acronym.content"/>
+    </element>
+  </define>
+  <!-- end of acronym.element -->
+  <define name="acronym.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of acronym.attlist -->
+  <define name="cite.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="cite">
+    <element name="cite">
+      <ref name="cite.attlist"/>
+      <ref name="cite.content"/>
+    </element>
+  </define>
+  <!-- end of cite.element -->
+  <define name="cite.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of cite.attlist -->
+  <define name="code.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="code">
+    <element name="code">
+      <ref name="code.attlist"/>
+      <ref name="code.content"/>
+    </element>
+  </define>
+  <!-- end of code.element -->
+  <define name="code.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of code.attlist -->
+  <define name="dfn.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="dfn">
+    <element name="dfn">
+      <ref name="dfn.attlist"/>
+      <ref name="dfn.content"/>
+    </element>
+  </define>
+  <!-- end of dfn.element -->
+  <define name="dfn.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of dfn.attlist -->
+  <define name="em.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="em">
+    <element name="em">
+      <ref name="em.attlist"/>
+      <ref name="em.content"/>
+    </element>
+  </define>
+  <!-- end of em.element -->
+  <define name="em.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of em.attlist -->
+  <define name="kbd.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="kbd">
+    <element name="kbd">
+      <ref name="kbd.attlist"/>
+      <ref name="kbd.content"/>
+    </element>
+  </define>
+  <!-- end of kbd.element -->
+  <define name="kbd.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of kbd.attlist -->
+  <define name="q.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="q">
+    <element name="q">
+      <ref name="q.attlist"/>
+      <ref name="q.content"/>
+    </element>
+  </define>
+  <!-- end of q.element -->
+  <define name="q.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="cite">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of q.attlist -->
+  <define name="samp.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="samp">
+    <element name="samp">
+      <ref name="samp.attlist"/>
+      <ref name="samp.content"/>
+    </element>
+  </define>
+  <!-- end of samp.element -->
+  <define name="samp.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of samp.attlist -->
+  <define name="strong.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="strong">
+    <element name="strong">
+      <ref name="strong.attlist"/>
+      <ref name="strong.content"/>
+    </element>
+  </define>
+  <!-- end of strong.element -->
+  <define name="strong.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of strong.attlist -->
+  <define name="var.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="var">
+    <element name="var">
+      <ref name="var.attlist"/>
+      <ref name="var.content"/>
+    </element>
+  </define>
+  <!-- end of var.element -->
+  <define name="var.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of var.attlist -->
+  <!-- end of xhtml-inlphras-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Block Structural Module  ....................................... -->
+  <!--
+    file: xhtml-blkstruct-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-blkstruct-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Block Structural 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-blkstruct-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Block Structural
+    
+       div, p
+    
+    This module declares the elements and their attributes used to
+    support block-level structural markup.
+  -->
+  <define name="div.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="div">
+    <element name="div">
+      <ref name="div.attlist"/>
+      <ref name="div.content"/>
+    </element>
+  </define>
+  <!-- end of div.element -->
+  <define name="div.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of div.attlist -->
+  <define name="p.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="p">
+    <element name="p">
+      <ref name="p.attlist"/>
+      <ref name="p.content"/>
+    </element>
+  </define>
+  <!-- end of p.element -->
+  <define name="p.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of p.attlist -->
+  <!-- end of xhtml-blkstruct-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Block Phrasal Module  .......................................... -->
+  <!--
+    file: xhtml-blkphras-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-blkphras-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Block Phrasal 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-blkphras-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Block Phrasal
+    
+       address, blockquote, pre, h1, h2, h3, h4, h5, h6
+    
+    This module declares the elements and their attributes used to
+    support block-level phrasal markup.
+  -->
+  <define name="address.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="address">
+    <element name="address">
+      <ref name="address.attlist"/>
+      <ref name="address.content"/>
+    </element>
+  </define>
+  <!-- end of address.element -->
+  <define name="address.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of address.attlist -->
+  <define name="blockquote.content">
+    <oneOrMore>
+      <ref name="Block.mix"/>
+    </oneOrMore>
+  </define>
+  <define name="blockquote">
+    <element name="blockquote">
+      <ref name="blockquote.attlist"/>
+      <ref name="blockquote.content"/>
+    </element>
+  </define>
+  <!-- end of blockquote.element -->
+  <define name="blockquote.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="cite">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of blockquote.attlist -->
+  <define name="pre.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="InlStruct.class"/>
+        <ref name="InlPhras.class"/>
+        <ref name="tt"/>
+        <ref name="i"/>
+        <ref name="b"/>
+        <ref name="I18n.class"/>
+        <ref name="Anchor.class"/>
+        <ref name="script"/>
+        <ref name="map"/>
+        <ref name="Inline.extra"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="pre">
+    <element name="pre">
+      <ref name="pre.attlist"/>
+      <ref name="pre.content"/>
+    </element>
+  </define>
+  <!-- end of pre.element -->
+  <define name="pre.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="xml:space" a:defaultValue="preserve">
+        <value>preserve</value>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of pre.attlist -->
+  <!-- ...................  Heading Elements  ................... -->
+  <define name="Heading.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="h1">
+    <element name="h1">
+      <ref name="h1.attlist"/>
+      <ref name="Heading.content"/>
+    </element>
+  </define>
+  <!-- end of h1.element -->
+  <define name="h1.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of h1.attlist -->
+  <define name="h2">
+    <element name="h2">
+      <ref name="h2.attlist"/>
+      <ref name="Heading.content"/>
+    </element>
+  </define>
+  <!-- end of h2.element -->
+  <define name="h2.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of h2.attlist -->
+  <define name="h3">
+    <element name="h3">
+      <ref name="h3.attlist"/>
+      <ref name="Heading.content"/>
+    </element>
+  </define>
+  <!-- end of h3.element -->
+  <define name="h3.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of h3.attlist -->
+  <define name="h4">
+    <element name="h4">
+      <ref name="h4.attlist"/>
+      <ref name="Heading.content"/>
+    </element>
+  </define>
+  <!-- end of h4.element -->
+  <define name="h4.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of h4.attlist -->
+  <define name="h5">
+    <element name="h5">
+      <ref name="h5.attlist"/>
+      <ref name="Heading.content"/>
+    </element>
+  </define>
+  <!-- end of h5.element -->
+  <define name="h5.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of h5.attlist -->
+  <define name="h6">
+    <element name="h6">
+      <ref name="h6.attlist"/>
+      <ref name="Heading.content"/>
+    </element>
+  </define>
+  <!-- end of h6.element -->
+  <define name="h6.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of h6.attlist -->
+  <!-- end of xhtml-blkphras-1.mod -->
+  <!-- end of xhtml-text-1.mod -->
+  <!-- Hypertext Module (required) ................................. -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Hypertext Module  .............................................. -->
+  <!--
+    file: xhtml-hypertext-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-hypertext-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Hypertext 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-hypertext-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Hypertext
+    
+       a
+    
+    This module declares the anchor ('a') element type, which
+    defines the source of a hypertext link. The destination
+    (or link 'target') is identified via its 'id' attribute
+    rather than the 'name' attribute as was used in HTML.
+  -->
+  <!-- ............  Anchor Element  ............ -->
+  <define name="a.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="InlNoAnchor.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="a">
+    <element name="a">
+      <ref name="a.attlist"/>
+      <ref name="a.content"/>
+    </element>
+  </define>
+  <!-- end of a.element -->
+  <define name="a.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="href">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="charset">
+        <ref name="Charset.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="hreflang">
+        <ref name="LanguageCode.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rel">
+        <ref name="LinkTypes.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rev">
+        <ref name="LinkTypes.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of a.attlist -->
+  <!-- end of xhtml-hypertext-1.mod -->
+  <!-- Lists Module (required)  .................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Lists Module  .................................................. -->
+  <!--
+    file: xhtml-list-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-list-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Lists 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-list-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Lists
+    
+       dl, dt, dd, ol, ul, li
+    
+    This module declares the list-oriented element types
+    and their attributes.
+  -->
+  <!-- dl: Definition List ............................... -->
+  <define name="dl.content">
+    <oneOrMore>
+      <choice>
+        <ref name="dt"/>
+        <ref name="dd"/>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="dl">
+    <element name="dl">
+      <ref name="dl.attlist"/>
+      <ref name="dl.content"/>
+    </element>
+  </define>
+  <!-- end of dl.element -->
+  <define name="dl.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of dl.attlist -->
+  <!-- dt: Definition Term ............................... -->
+  <define name="dt.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="dt">
+    <element name="dt">
+      <ref name="dt.attlist"/>
+      <ref name="dt.content"/>
+    </element>
+  </define>
+  <!-- end of dt.element -->
+  <define name="dt.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of dt.attlist -->
+  <!-- dd: Definition Description ........................ -->
+  <define name="dd.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="dd">
+    <element name="dd">
+      <ref name="dd.attlist"/>
+      <ref name="dd.content"/>
+    </element>
+  </define>
+  <!-- end of dd.element -->
+  <define name="dd.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of dd.attlist -->
+  <!-- ol: Ordered List (numbered styles) ................ -->
+  <define name="ol.content">
+    <oneOrMore>
+      <ref name="li"/>
+    </oneOrMore>
+  </define>
+  <define name="ol">
+    <element name="ol">
+      <ref name="ol.attlist"/>
+      <ref name="ol.content"/>
+    </element>
+  </define>
+  <!-- end of ol.element -->
+  <define name="ol.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of ol.attlist -->
+  <!-- ul: Unordered List (bullet styles) ................ -->
+  <define name="ul.content">
+    <oneOrMore>
+      <ref name="li"/>
+    </oneOrMore>
+  </define>
+  <define name="ul">
+    <element name="ul">
+      <ref name="ul.attlist"/>
+      <ref name="ul.content"/>
+    </element>
+  </define>
+  <!-- end of ul.element -->
+  <define name="ul.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of ul.attlist -->
+  <!-- li: List Item ..................................... -->
+  <define name="li.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="li">
+    <element name="li">
+      <ref name="li.attlist"/>
+      <ref name="li.content"/>
+    </element>
+  </define>
+  <!-- end of li.element -->
+  <define name="li.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of li.attlist -->
+  <!-- end of xhtml-list-1.mod -->
+  <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <!-- Edit Module  ................................................ -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Editing Elements Module  ....................................... -->
+  <!--
+    file: xhtml-edit-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-edit-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Editing Markup 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-edit-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Editing Elements
+    
+       ins, del
+    
+    This module declares element types and attributes used to indicate
+    inserted and deleted content while editing a document.
+  -->
+  <!-- ins: Inserted Text  ............................... -->
+  <define name="ins.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="ins">
+    <element name="ins">
+      <ref name="ins.attlist"/>
+      <ref name="ins.content"/>
+    </element>
+  </define>
+  <!-- end of ins.element -->
+  <define name="ins.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="cite">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="datetime">
+        <ref name="Datetime.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of ins.attlist -->
+  <!-- del: Deleted Text  ................................ -->
+  <define name="del.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="del">
+    <element name="del">
+      <ref name="del.attlist"/>
+      <ref name="del.content"/>
+    </element>
+  </define>
+  <!-- end of del.element -->
+  <define name="del.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="cite">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="datetime">
+        <ref name="Datetime.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of del.attlist -->
+  <!-- end of xhtml-edit-1.mod -->
+  <!-- BIDI Override Module  ....................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML BDO Element Module ............................................. -->
+  <!--
+    file: xhtml-bdo-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-bdo-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML BDO Element 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-bdo-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Bidirectional Override (bdo) Element
+    
+    This modules declares the element 'bdo', used to override the
+    Unicode bidirectional algorithm for selected fragments of text.
+    
+    DEPENDENCIES:
+    Relies on the conditional section keyword %XHTML.bidi; declared
+    as "INCLUDE". Bidirectional text support includes both the bdo
+    element and the 'dir' attribute.
+  -->
+  <define name="bdo.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="bdo">
+    <element name="bdo">
+      <ref name="bdo.attlist"/>
+      <ref name="bdo.content"/>
+    </element>
+  </define>
+  <!-- end of bdo.element -->
+  <define name="bdo.attlist" combine="interleave">
+    <ref name="Core.attrib"/>
+    <optional>
+      <attribute name="xml:lang">
+        <ref name="LanguageCode.datatype"/>
+      </attribute>
+    </optional>
+    <attribute name="dir">
+      <choice>
+        <value>ltr</value>
+        <value>rtl</value>
+      </choice>
+    </attribute>
+  </define>
+  <!-- end of xhtml-bdo-1.mod -->
+  <!-- Ruby Module  ................................................ -->
+  <define name="Ruby.common.attrib">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- ...................................................................... -->
+  <!-- XHTML Ruby Module .................................................... -->
+  <!--
+    file: xhtml-ruby-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1999-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-ruby-1.mod,v 4.0 2001/04/03 23:14:33 altheim Exp $
+    
+    This module is based on the W3C Ruby Annotation Specification:
+    
+       http://www.w3.org/TR/ruby
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Ruby 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/ruby/xhtml-ruby-1.mod"
+    
+    ......................................................................
+  -->
+  <!--
+    Ruby Elements
+    
+       ruby, rbc, rtc, rb, rt, rp
+    
+    This module declares the elements and their attributes used to
+    support ruby annotation markup.
+  -->
+  <!-- declare qualified element type names: -->
+  <!-- rp fallback is included by default. -->
+  <!--
+    Complex ruby is included by default; it may be 
+    overridden by other modules to ignore it.
+  -->
+  <!-- Fragments for the content model of the ruby element -->
+  <define name="Ruby.content.simple">
+    <ref name="rb"/>
+    <choice>
+      <ref name="rt"/>
+      <group>
+        <ref name="rp"/>
+        <ref name="rt"/>
+        <ref name="rp"/>
+      </group>
+    </choice>
+  </define>
+  <define name="Ruby.content.complex">
+    <ref name="rbc"/>
+    <ref name="rtc"/>
+    <optional>
+      <ref name="rtc"/>
+    </optional>
+  </define>
+  <!--
+    Content models of the rb and the rt elements are intended to
+    allow other inline-level elements of its parent markup language,
+    but it should not include ruby descendent elements. The following
+    parameter entity %NoRuby.content; can be used to redefine
+    those content models with minimum effort.  It's defined as
+    '( #PCDATA )' by default.
+  -->
+  <!-- one or more digits (NUMBER) -->
+  <!-- ruby element ...................................... -->
+  <define name="ruby.content">
+    <choice>
+      <ref name="Ruby.content.simple"/>
+      <ref name="Ruby.content.complex"/>
+    </choice>
+  </define>
+  <define name="ruby">
+    <element name="ruby">
+      <ref name="ruby.attlist"/>
+      <ref name="ruby.content"/>
+    </element>
+  </define>
+  <!-- end of ruby.element -->
+  <!-- rbc (ruby base component) element ................. -->
+  <define name="rbc.content">
+    <oneOrMore>
+      <ref name="rb"/>
+    </oneOrMore>
+  </define>
+  <define name="rbc">
+    <element name="rbc">
+      <ref name="rbc.attlist"/>
+      <ref name="rbc.content"/>
+    </element>
+  </define>
+  <!-- end of rbc.element -->
+  <!-- rtc (ruby text component) element ................. -->
+  <define name="rtc.content">
+    <oneOrMore>
+      <ref name="rt"/>
+    </oneOrMore>
+  </define>
+  <define name="rtc">
+    <element name="rtc">
+      <ref name="rtc.attlist"/>
+      <ref name="rtc.content"/>
+    </element>
+  </define>
+  <!-- end of rtc.element -->
+  <!-- rb (ruby base) element ............................ -->
+  <!--
+    %rb.content; uses %NoRuby.content; as its content model,
+    which is '( #PCDATA )' by default. It may be overridden
+    by other modules to allow other inline-level elements
+    of its parent markup language, but it should not include
+    ruby descendent elements.
+  -->
+  <define name="rb.content">
+    <ref name="NoRuby.content"/>
+  </define>
+  <define name="rb">
+    <element name="rb">
+      <ref name="rb.attlist"/>
+      <ref name="rb.content"/>
+    </element>
+  </define>
+  <!-- end of rb.element -->
+  <!-- rt (ruby text) element ............................ -->
+  <!--
+    %rt.content; uses %NoRuby.content; as its content model,
+    which is '( #PCDATA )' by default. It may be overridden
+    by other modules to allow other inline-level elements
+    of its parent markup language, but it should not include
+    ruby descendent elements.
+  -->
+  <define name="rt.content">
+    <ref name="NoRuby.content"/>
+  </define>
+  <define name="rt">
+    <element name="rt">
+      <ref name="rt.attlist"/>
+      <ref name="rt.content"/>
+    </element>
+  </define>
+  <!-- end of rt.element -->
+  <!-- rbspan attribute is used for complex ruby only ...... -->
+  <define name="rt.attlist" combine="interleave">
+    <optional>
+      <attribute name="rbspan" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of rt.attlist -->
+  <!-- rp (ruby parenthesis) element ..................... -->
+  <define name="rp.content">
+    <text/>
+  </define>
+  <define name="rp">
+    <element name="rp">
+      <ref name="rp.attlist"/>
+      <ref name="rp.content"/>
+    </element>
+  </define>
+  <!-- end of rp.element -->
+  <!--
+    Ruby Common Attributes
+    
+    The following optional ATTLIST declarations provide an easy way
+    to define common attributes for ruby elements.  These declarations
+    are ignored by default.
+    
+    Ruby elements are intended to have common attributes of its
+    parent markup language.  For example, if a markup language defines
+    common attributes as a parameter entity %attrs;, you may add
+    those attributes by just declaring the following parameter entities
+    
+        <!ENTITY % Ruby.common.attlists  "INCLUDE" >
+        <!ENTITY % Ruby.common.attrib  "%attrs;" >
+    
+    before including the Ruby module.
+  -->
+  <!-- common attributes for ruby ........................ -->
+  <define name="ruby.attlist" combine="interleave">
+    <ref name="Ruby.common.attrib"/>
+  </define>
+  <!-- end of Ruby.common.attlist -->
+  <!-- common attributes for rbc ......................... -->
+  <define name="rbc.attlist" combine="interleave">
+    <ref name="Ruby.common.attrib"/>
+  </define>
+  <!-- end of Rbc.common.attlist -->
+  <!-- common attributes for rtc ......................... -->
+  <define name="rtc.attlist" combine="interleave">
+    <ref name="Ruby.common.attrib"/>
+  </define>
+  <!-- end of Rtc.common.attlist -->
+  <!-- common attributes for rb .......................... -->
+  <define name="rb.attlist" combine="interleave">
+    <ref name="Ruby.common.attrib"/>
+  </define>
+  <!-- end of Rb.common.attlist -->
+  <!-- common attributes for rt .......................... -->
+  <define name="rt.attlist" combine="interleave">
+    <ref name="Ruby.common.attrib"/>
+  </define>
+  <!-- end of Rt.common.attlist -->
+  <!-- common attributes for rp .......................... -->
+  <define name="rp.attlist" combine="interleave">
+    <ref name="Ruby.common.attrib"/>
+  </define>
+  <!-- end of Rp.common.attlist -->
+  <!-- end of xhtml-ruby-1.mod -->
+  <!-- Presentation Module  ........................................ -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Presentation Module ............................................ -->
+  <!--
+    file: xhtml-pres-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-pres-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Presentation 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-pres-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Presentational Elements
+    
+    This module defines elements and their attributes for
+    simple presentation-related markup.
+  -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Inline Presentation Module  .................................... -->
+  <!--
+    file: xhtml-inlpres-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-inlpres-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Inline Presentation 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-inlpres-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Inline Presentational Elements
+    
+       b, big, i, small, sub, sup, tt
+    
+    This module declares the elements and their attributes used to
+    support inline-level presentational markup.
+  -->
+  <define name="b.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="b">
+    <element name="b">
+      <ref name="b.attlist"/>
+      <ref name="b.content"/>
+    </element>
+  </define>
+  <!-- end of b.element -->
+  <define name="b.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of b.attlist -->
+  <define name="big.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="big">
+    <element name="big">
+      <ref name="big.attlist"/>
+      <ref name="big.content"/>
+    </element>
+  </define>
+  <!-- end of big.element -->
+  <define name="big.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of big.attlist -->
+  <define name="i.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="i">
+    <element name="i">
+      <ref name="i.attlist"/>
+      <ref name="i.content"/>
+    </element>
+  </define>
+  <!-- end of i.element -->
+  <define name="i.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of i.attlist -->
+  <define name="small.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="small">
+    <element name="small">
+      <ref name="small.attlist"/>
+      <ref name="small.content"/>
+    </element>
+  </define>
+  <!-- end of small.element -->
+  <define name="small.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of small.attlist -->
+  <define name="sub.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="sub">
+    <element name="sub">
+      <ref name="sub.attlist"/>
+      <ref name="sub.content"/>
+    </element>
+  </define>
+  <!-- end of sub.element -->
+  <define name="sub.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of sub.attlist -->
+  <define name="sup.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="sup">
+    <element name="sup">
+      <ref name="sup.attlist"/>
+      <ref name="sup.content"/>
+    </element>
+  </define>
+  <!-- end of sup.element -->
+  <define name="sup.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of sup.attlist -->
+  <define name="tt.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="tt">
+    <element name="tt">
+      <ref name="tt.attlist"/>
+      <ref name="tt.content"/>
+    </element>
+  </define>
+  <!-- end of tt.element -->
+  <define name="tt.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of tt.attlist -->
+  <!-- end of xhtml-inlpres-1.mod -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Block Presentation Module  ..................................... -->
+  <!--
+    file: xhtml-blkpres-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-blkpres-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Block Presentation 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-blkpres-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Block Presentational Elements
+    
+       hr
+    
+    This module declares the elements and their attributes used to
+    support block-level presentational markup.
+  -->
+  <define name="hr.content">
+    <empty/>
+  </define>
+  <define name="hr">
+    <element name="hr">
+      <ref name="hr.attlist"/>
+      <ref name="hr.content"/>
+    </element>
+  </define>
+  <!-- end of hr.element -->
+  <define name="hr.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of hr.attlist -->
+  <!-- end of xhtml-blkpres-1.mod -->
+  <!-- end of xhtml-pres-1.mod -->
+  <!-- Link Element Module  ........................................ -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Link Element Module  ........................................... -->
+  <!--
+    file: xhtml-link-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-link-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Link Element 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-link-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Link element
+    
+       link
+    
+    This module declares the link element type and its attributes,
+    which could (in principle) be used to define document-level links
+    to external resources such as:
+    
+    a) for document specific toolbars/menus, e.g. start, contents,
+       previous, next, index, end, help
+    b) to link to a separate style sheet (rel="stylesheet")
+    c) to make a link to a script (rel="script")
+    d) by stylesheets to control how collections of html nodes are
+       rendered into printed documents
+    e) to make a link to a printable version of this document
+       e.g. a postscript or pdf version (rel="alternate" media="print")
+  -->
+  <!-- link: Media-Independent Link ...................... -->
+  <define name="link.content">
+    <empty/>
+  </define>
+  <define name="link">
+    <element name="link">
+      <ref name="link.attlist"/>
+      <ref name="link.content"/>
+    </element>
+  </define>
+  <!-- end of link.element -->
+  <define name="link.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="charset">
+        <ref name="Charset.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="href">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="hreflang">
+        <ref name="LanguageCode.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rel">
+        <ref name="LinkTypes.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rev">
+        <ref name="LinkTypes.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="media">
+        <ref name="MediaDesc.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of link.attlist -->
+  <!-- end of xhtml-link-1.mod -->
+  <!-- Document Metainformation Module  ............................ -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Document Metainformation Module  ............................... -->
+  <!--
+    file: xhtml-meta-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-meta-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Metainformation 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-meta-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Meta Information
+    
+       meta
+    
+    This module declares the meta element type and its attributes,
+    used to provide declarative document metainformation.
+  -->
+  <!-- meta: Generic Metainformation ..................... -->
+  <define name="meta.content">
+    <empty/>
+  </define>
+  <define name="meta">
+    <element name="meta">
+      <ref name="meta.attlist"/>
+      <ref name="meta.content"/>
+    </element>
+  </define>
+  <!-- end of meta.element -->
+  <define name="meta.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="I18n.attrib"/>
+    <optional>
+      <attribute name="http-equiv">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="name">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <attribute name="content"/>
+    <optional>
+      <attribute name="scheme"/>
+    </optional>
+  </define>
+  <!-- end of meta.attlist -->
+  <!-- end of xhtml-meta-1.mod -->
+  <!-- Base Element Module  ........................................ -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Base Element Module  ........................................... -->
+  <!--
+    file: xhtml-base-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-base-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Base Element 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-base-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Base element
+    
+       base
+    
+    This module declares the base element type and its attributes,
+    used to define a base URI against which relative URIs in the
+    document will be resolved.
+    
+    Note that this module also redeclares the content model for
+    the head element to include the base element.
+  -->
+  <!-- base: Document Base URI ........................... -->
+  <define name="base.content">
+    <empty/>
+  </define>
+  <define name="base">
+    <element name="base">
+      <ref name="base.attlist"/>
+      <ref name="base.content"/>
+    </element>
+  </define>
+  <!-- end of base.element -->
+  <define name="base.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <attribute name="href">
+      <ref name="URI.datatype"/>
+    </attribute>
+  </define>
+  <!-- end of base.attlist -->
+  <define name="head.content">
+    <ref name="HeadOpts.mix"/>
+    <choice>
+      <group>
+        <ref name="title"/>
+        <ref name="HeadOpts.mix"/>
+        <optional>
+          <ref name="base"/>
+          <ref name="HeadOpts.mix"/>
+        </optional>
+      </group>
+      <group>
+        <ref name="base"/>
+        <ref name="HeadOpts.mix"/>
+        <group>
+          <ref name="title"/>
+          <ref name="HeadOpts.mix"/>
+        </group>
+      </group>
+    </choice>
+  </define>
+  <!-- end of xhtml-base-1.mod -->
+  <!-- Scripting Module  ........................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Document Scripting Module  ..................................... -->
+  <!--
+    file: xhtml-script-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-script-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Scripting 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-script-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Scripting
+    
+       script, noscript
+    
+    This module declares element types and attributes used to provide
+    support for executable scripts as well as an alternate content
+    container where scripts are not supported.
+  -->
+  <!-- script: Scripting Statement ....................... -->
+  <define name="script.content">
+    <text/>
+  </define>
+  <define name="script">
+    <element name="script">
+      <ref name="script.attlist"/>
+      <ref name="script.content"/>
+    </element>
+  </define>
+  <!-- end of script.element -->
+  <define name="script.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <optional>
+      <attribute name="charset">
+        <ref name="Charset.datatype"/>
+      </attribute>
+    </optional>
+    <attribute name="type">
+      <ref name="ContentType.datatype"/>
+    </attribute>
+    <optional>
+      <attribute name="src">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="defer">
+        <choice>
+          <value>defer</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xml:space" a:defaultValue="preserve">
+        <value>preserve</value>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of script.attlist -->
+  <!-- noscript: No-Script Alternate Content ............. -->
+  <define name="noscript.content">
+    <oneOrMore>
+      <ref name="Block.mix"/>
+    </oneOrMore>
+  </define>
+  <define name="noscript">
+    <element name="noscript">
+      <ref name="noscript.attlist"/>
+      <ref name="noscript.content"/>
+    </element>
+  </define>
+  <!-- end of noscript.element -->
+  <define name="noscript.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of noscript.attlist -->
+  <!-- end of xhtml-script-1.mod -->
+  <!-- Style Sheets Module  ......................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Document Style Sheet Module  .................................... -->
+  <!--
+    file: xhtml-style-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-style-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//DTD XHTML Style Sheets 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-style-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Style Sheets
+    
+       style
+    
+    This module declares the style element type and its attributes,
+    used to embed stylesheet information in the document head element.
+  -->
+  <!-- style: Style Sheet Information ..................... -->
+  <define name="style.content">
+    <text/>
+  </define>
+  <define name="style">
+    <element name="style">
+      <ref name="style.attlist"/>
+      <ref name="style.content"/>
+    </element>
+  </define>
+  <!-- end of style.element -->
+  <define name="style.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="title.attrib"/>
+    <ref name="I18n.attrib"/>
+    <attribute name="type">
+      <ref name="ContentType.datatype"/>
+    </attribute>
+    <optional>
+      <attribute name="media">
+        <ref name="MediaDesc.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xml:space" a:defaultValue="preserve">
+        <value>preserve</value>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of style.attlist -->
+  <!-- end of xhtml-style-1.mod -->
+  <!-- Image Module  ............................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Images Module  ................................................. -->
+  <!--
+    file: xhtml-image-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Rovision: $Id: xhtml-image-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Images 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-image-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Images
+    
+       img
+    
+    This module provides markup to support basic image embedding.
+  -->
+  <!--
+    To avoid problems with text-only UAs as well as to make
+    image content understandable and navigable to users of
+    non-visual UAs, you need to provide a description with
+    the 'alt' attribute, and avoid server-side image maps.
+  -->
+  <define name="img.content">
+    <empty/>
+  </define>
+  <define name="img">
+    <element name="img">
+      <ref name="img.attlist"/>
+      <ref name="img.content"/>
+    </element>
+  </define>
+  <!-- end of img.element -->
+  <define name="img.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <attribute name="src">
+      <ref name="URI.datatype"/>
+    </attribute>
+    <attribute name="alt">
+      <ref name="Text.datatype"/>
+    </attribute>
+    <optional>
+      <attribute name="longdesc">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="height">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="width">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of img.attlist -->
+  <!-- end of xhtml-image-1.mod -->
+  <!-- Client-side Image Map Module  ............................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Client-side Image Map Module  .................................. -->
+  <!--
+    file: xhtml-csismap-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-csismap-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Client-side Image Maps 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-csismap-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Client-side Image Maps
+    
+       area, map
+    
+    This module declares elements and attributes to support client-side
+    image maps. This requires that the Image Module (or a module
+    declaring the img element type) be included in the DTD.
+    
+    These can be placed in the same document or grouped in a
+    separate document, although the latter isn't widely supported
+  -->
+  <define name="area.content">
+    <empty/>
+  </define>
+  <define name="area">
+    <element name="area">
+      <ref name="area.attlist"/>
+      <ref name="area.content"/>
+    </element>
+  </define>
+  <!-- end of area.element -->
+  <define name="Shape.datatype">
+    <choice>
+      <value>rect</value>
+      <value>circle</value>
+      <value>poly</value>
+      <value>default</value>
+    </choice>
+  </define>
+  <define name="Coords.datatype">
+    <data type="string" datatypeLibrary=""/>
+  </define>
+  <define name="area.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="href">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="shape" a:defaultValue="rect">
+        <ref name="Shape.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="coords">
+        <ref name="Coords.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="nohref">
+        <choice>
+          <value>nohref</value>
+        </choice>
+      </attribute>
+    </optional>
+    <attribute name="alt">
+      <ref name="Text.datatype"/>
+    </attribute>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of area.attlist -->
+  <!--
+    modify anchor attribute definition list
+    to allow for client-side image maps
+  -->
+  <define name="a.attlist" combine="interleave">
+    <optional>
+      <attribute name="shape" a:defaultValue="rect">
+        <ref name="Shape.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="coords">
+        <ref name="Coords.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!--
+    modify img attribute definition list
+    to allow for client-side image maps
+  -->
+  <define name="img.attlist" combine="interleave">
+    <optional>
+      <attribute name="usemap">
+        <data type="IDREF"/>
+      </attribute>
+    </optional>
+  </define>
+  <!--
+    modify form input attribute definition list
+    to allow for client-side image maps
+  -->
+  <define name="input.attlist" combine="interleave">
+    <optional>
+      <attribute name="usemap">
+        <data type="IDREF"/>
+      </attribute>
+    </optional>
+  </define>
+  <!--
+    modify object attribute definition list
+    to allow for client-side image maps
+  -->
+  <define name="object.attlist" combine="interleave">
+    <optional>
+      <attribute name="usemap">
+        <data type="IDREF"/>
+      </attribute>
+    </optional>
+  </define>
+  <!--
+    'usemap' points to the 'id' attribute of a <map> element,
+    which must be in the same document; support for external
+    document maps was not widely supported in HTML and is
+    eliminated in XHTML.
+    
+    It is considered an error for the element pointed to by
+    a usemap IDREF to occur in anything but a <map> element.
+  -->
+  <define name="map.content">
+    <oneOrMore>
+      <choice>
+        <ref name="Block.mix"/>
+        <ref name="area"/>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="map">
+    <element name="map">
+      <ref name="map.attlist"/>
+      <ref name="map.content"/>
+    </element>
+  </define>
+  <!-- end of map.element -->
+  <define name="map.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <attribute name="id">
+      <data type="ID"/>
+    </attribute>
+    <ref name="class.attrib"/>
+    <ref name="title.attrib"/>
+    <ref name="Core.extra.attrib"/>
+    <ref name="I18n.attrib"/>
+    <ref name="Events.attrib"/>
+  </define>
+  <!-- end of map.attlist -->
+  <!-- end of xhtml-csismap-1.mod -->
+  <!-- Server-side Image Map Module  ............................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Server-side Image Map Module  .................................. -->
+  <!--
+    file: xhtml-ssismap-1.mod
+    
+         This is XHTML, a reformulation of HTML as a modular XML application.
+         Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+         Revision: $Id: xhtml-ssismap-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+         This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+           PUBLIC "-//W3C//ELEMENTS XHTML Server-side Image Maps 1.0//EN"
+           SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-ssismap-1.mod"
+    
+         Revisions:
+    #2000-10-22: added declaration for 'ismap' on <input>
+         .......................................................................
+  -->
+  <!--
+    Server-side Image Maps
+    
+    This adds the 'ismap' attribute to the img and input elements
+    to support server-side processing of a user selection.
+  -->
+  <define name="img.attlist" combine="interleave">
+    <optional>
+      <attribute name="ismap">
+        <choice>
+          <value>ismap</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="input.attlist" combine="interleave">
+    <optional>
+      <attribute name="ismap">
+        <choice>
+          <value>ismap</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of xhtml-ssismap-1.mod -->
+  <!-- Param Element Module  ....................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Param Element Module  ..................................... -->
+  <!--
+    file: xhtml-param-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-param-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Param Element 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-param-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Parameters for Java Applets and Embedded Objects
+    
+       param
+    
+    This module provides declarations for the param element,
+    used to provide named property values for the applet
+    and object elements.
+  -->
+  <!-- param: Named Property Value ....................... -->
+  <define name="param.content">
+    <empty/>
+  </define>
+  <define name="param">
+    <element name="param">
+      <ref name="param.attlist"/>
+      <ref name="param.content"/>
+    </element>
+  </define>
+  <!-- end of param.element -->
+  <define name="param.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="id.attrib"/>
+    <attribute name="name"/>
+    <optional>
+      <attribute name="value"/>
+    </optional>
+    <optional>
+      <attribute name="valuetype" a:defaultValue="data">
+        <choice>
+          <value>data</value>
+          <value>ref</value>
+          <value>object</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of param.attlist -->
+  <!-- end of xhtml-param-1.mod -->
+  <!-- Embedded Object Module  ..................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Embedded Object Module  ........................................ -->
+  <!--
+    file: xhtml-object-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-object-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Embedded Object 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-object-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Embedded Objects
+    
+       object
+    
+    This module declares the object element type and its attributes, used
+    to embed external objects as part of XHTML pages. In the document,
+    place param elements prior to other content within the object element.
+    
+    Note that use of this module requires instantiation of the Param
+    Element Module.
+  -->
+  <!-- object: Generic Embedded Object ................... -->
+  <define name="object.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+        <ref name="param"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="object">
+    <element name="object">
+      <ref name="object.attlist"/>
+      <ref name="object.content"/>
+    </element>
+  </define>
+  <!-- end of object.element -->
+  <define name="object.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="declare">
+        <choice>
+          <value>declare</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="classid">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="codebase">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="data">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="codetype">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="archive">
+        <ref name="URIs.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="standby">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="height">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="width">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="name"/>
+    </optional>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of object.attlist -->
+  <!-- end of xhtml-object-1.mod -->
+  <!-- Tables Module ............................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Table Module  .................................................. -->
+  <!--
+    file: xhtml-table-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-table-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Tables 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-table-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Tables
+    
+       table, caption, thead, tfoot, tbody, colgroup, col, tr, th, td
+    
+    This module declares element types and attributes used to provide
+    table markup similar to HTML 4.0, including features that enable
+    better accessibility for non-visual user agents.
+  -->
+  <!-- declare qualified element type names: -->
+  <!--
+    The frame attribute specifies which parts of the frame around
+    the table should be rendered. The values are not the same as
+    CALS to avoid a name clash with the valign attribute.
+  -->
+  <define name="frame.attrib">
+    <optional>
+      <attribute name="frame">
+        <choice>
+          <value>void</value>
+          <value>above</value>
+          <value>below</value>
+          <value>hsides</value>
+          <value>lhs</value>
+          <value>rhs</value>
+          <value>vsides</value>
+          <value>box</value>
+          <value>border</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!--
+    The rules attribute defines which rules to draw between cells:
+    
+    If rules is absent then assume:
+    
+      "none" if border is absent or border="0" otherwise "all"
+  -->
+  <define name="rules.attrib">
+    <optional>
+      <attribute name="rules">
+        <choice>
+          <value>none</value>
+          <value>groups</value>
+          <value>rows</value>
+          <value>cols</value>
+          <value>all</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- horizontal alignment attributes for cell contents -->
+  <define name="CellHAlign.attrib">
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="charoff">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- vertical alignment attribute for cell contents -->
+  <define name="CellVAlign.attrib">
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>top</value>
+          <value>middle</value>
+          <value>bottom</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- scope is simpler than axes attribute for common tables -->
+  <define name="scope.attrib">
+    <optional>
+      <attribute name="scope">
+        <choice>
+          <value>row</value>
+          <value>col</value>
+          <value>rowgroup</value>
+          <value>colgroup</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- table: Table Element .............................. -->
+  <define name="table.content">
+    <optional>
+      <ref name="caption"/>
+    </optional>
+    <choice>
+      <zeroOrMore>
+        <ref name="col"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <ref name="colgroup"/>
+      </zeroOrMore>
+    </choice>
+    <choice>
+      <group>
+        <optional>
+          <ref name="thead"/>
+        </optional>
+        <optional>
+          <ref name="tfoot"/>
+        </optional>
+        <oneOrMore>
+          <ref name="tbody"/>
+        </oneOrMore>
+      </group>
+      <oneOrMore>
+        <ref name="tr"/>
+      </oneOrMore>
+    </choice>
+  </define>
+  <define name="table">
+    <element name="table">
+      <ref name="table.attlist"/>
+      <ref name="table.content"/>
+    </element>
+  </define>
+  <!-- end of table.element -->
+  <define name="table.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="summary">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="width">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="border">
+        <ref name="Pixels.datatype"/>
+      </attribute>
+    </optional>
+    <ref name="frame.attrib"/>
+    <ref name="rules.attrib"/>
+    <optional>
+      <attribute name="cellspacing">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="cellpadding">
+        <ref name="Length.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of table.attlist -->
+  <!-- caption: Table Caption ............................ -->
+  <define name="caption.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="caption">
+    <element name="caption">
+      <ref name="caption.attlist"/>
+      <ref name="caption.content"/>
+    </element>
+  </define>
+  <!-- end of caption.element -->
+  <define name="caption.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of caption.attlist -->
+  <!-- thead: Table Header ............................... -->
+  <!--
+    Use thead to duplicate headers when breaking table
+    across page boundaries, or for static headers when
+    tbody sections are rendered in scrolling panel.
+  -->
+  <define name="thead.content">
+    <oneOrMore>
+      <ref name="tr"/>
+    </oneOrMore>
+  </define>
+  <define name="thead">
+    <element name="thead">
+      <ref name="thead.attlist"/>
+      <ref name="thead.content"/>
+    </element>
+  </define>
+  <!-- end of thead.element -->
+  <define name="thead.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of thead.attlist -->
+  <!-- tfoot: Table Footer ............................... -->
+  <!--
+    Use tfoot to duplicate footers when breaking table
+    across page boundaries, or for static footers when
+    tbody sections are rendered in scrolling panel.
+  -->
+  <define name="tfoot.content">
+    <oneOrMore>
+      <ref name="tr"/>
+    </oneOrMore>
+  </define>
+  <define name="tfoot">
+    <element name="tfoot">
+      <ref name="tfoot.attlist"/>
+      <ref name="tfoot.content"/>
+    </element>
+  </define>
+  <!-- end of tfoot.element -->
+  <define name="tfoot.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of tfoot.attlist -->
+  <!-- tbody: Table Body ................................. -->
+  <!--
+    Use multiple tbody sections when rules are needed
+    between groups of table rows.
+  -->
+  <define name="tbody.content">
+    <oneOrMore>
+      <ref name="tr"/>
+    </oneOrMore>
+  </define>
+  <define name="tbody">
+    <element name="tbody">
+      <ref name="tbody.attlist"/>
+      <ref name="tbody.content"/>
+    </element>
+  </define>
+  <!-- end of tbody.element -->
+  <define name="tbody.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of tbody.attlist -->
+  <!-- colgroup: Table Column Group ...................... -->
+  <!--
+    colgroup groups a set of col elements. It allows you
+    to group several semantically-related columns together.
+  -->
+  <define name="colgroup.content">
+    <zeroOrMore>
+      <ref name="col"/>
+    </zeroOrMore>
+  </define>
+  <define name="colgroup">
+    <element name="colgroup">
+      <ref name="colgroup.attlist"/>
+      <ref name="colgroup.content"/>
+    </element>
+  </define>
+  <!-- end of colgroup.element -->
+  <define name="colgroup.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="span" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="width">
+        <ref name="MultiLength.datatype"/>
+      </attribute>
+    </optional>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of colgroup.attlist -->
+  <!-- col: Table Column ................................. -->
+  <!--
+    col elements define the alignment properties for
+    cells in one or more columns.
+    
+    The width attribute specifies the width of the
+    columns, e.g.
+    
+      width="64"        width in screen pixels
+      width="0.5*"      relative width of 0.5
+    
+    The span attribute causes the attributes of one
+    col element to apply to more than one column.
+  -->
+  <define name="col.content">
+    <empty/>
+  </define>
+  <define name="col">
+    <element name="col">
+      <ref name="col.attlist"/>
+      <ref name="col.content"/>
+    </element>
+  </define>
+  <!-- end of col.element -->
+  <define name="col.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="span" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="width">
+        <ref name="MultiLength.datatype"/>
+      </attribute>
+    </optional>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of col.attlist -->
+  <!-- tr: Table Row ..................................... -->
+  <define name="tr.content">
+    <oneOrMore>
+      <choice>
+        <ref name="th"/>
+        <ref name="td"/>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="tr">
+    <element name="tr">
+      <ref name="tr.attlist"/>
+      <ref name="tr.content"/>
+    </element>
+  </define>
+  <!-- end of tr.element -->
+  <define name="tr.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of tr.attlist -->
+  <!-- th: Table Header Cell ............................. -->
+  <!--
+    th is for header cells, td for data,
+    but for cells acting as both use td
+  -->
+  <define name="th.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="th">
+    <element name="th">
+      <ref name="th.attlist"/>
+      <ref name="th.content"/>
+    </element>
+  </define>
+  <!-- end of th.element -->
+  <define name="th.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="abbr">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="axis"/>
+    </optional>
+    <optional>
+      <attribute name="headers">
+        <data type="IDREFS"/>
+      </attribute>
+    </optional>
+    <ref name="scope.attrib"/>
+    <optional>
+      <attribute name="rowspan" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="colspan" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of th.attlist -->
+  <!-- td: Table Data Cell ............................... -->
+  <define name="td.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="td">
+    <element name="td">
+      <ref name="td.attlist"/>
+      <ref name="td.content"/>
+    </element>
+  </define>
+  <!-- end of td.element -->
+  <define name="td.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="abbr">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="axis"/>
+    </optional>
+    <optional>
+      <attribute name="headers">
+        <data type="IDREFS"/>
+      </attribute>
+    </optional>
+    <ref name="scope.attrib"/>
+    <optional>
+      <attribute name="rowspan" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="colspan" a:defaultValue="1">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <ref name="CellHAlign.attrib"/>
+    <ref name="CellVAlign.attrib"/>
+  </define>
+  <!-- end of td.attlist -->
+  <!-- end of xhtml-table-1.mod -->
+  <!-- Forms Module  ............................................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Forms Module  .................................................. -->
+  <!--
+    file: xhtml-form-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-form-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Forms 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-form-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Forms
+    
+       form, label, input, select, optgroup, option,
+       textarea, fieldset, legend, button
+    
+    This module declares markup to provide support for online
+    forms, based on the features found in HTML 4.0 forms.
+  -->
+  <!-- declare qualified element type names: -->
+  <!--
+    %BlkNoForm.mix; includes all non-form block elements,
+    plus %Misc.class;
+  -->
+  <define name="BlkNoForm.mix">
+    <choice>
+      <ref name="Heading.class"/>
+      <ref name="List.class"/>
+      <ref name="BlkStruct.class"/>
+      <ref name="BlkPhras.class"/>
+      <ref name="BlkPres.class"/>
+      <ref name="Table.class"/>
+      <ref name="Block.extra"/>
+      <ref name="Misc.class"/>
+    </choice>
+  </define>
+  <!-- form: Form Element ................................ -->
+  <define name="form.content">
+    <oneOrMore>
+      <choice>
+        <ref name="BlkNoForm.mix"/>
+        <ref name="fieldset"/>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="form">
+    <element name="form">
+      <ref name="form.attlist"/>
+      <ref name="form.content"/>
+    </element>
+  </define>
+  <!-- end of form.element -->
+  <define name="form.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <attribute name="action">
+      <ref name="URI.datatype"/>
+    </attribute>
+    <optional>
+      <attribute name="method" a:defaultValue="get">
+        <choice>
+          <value>get</value>
+          <value>post</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="enctype" a:defaultValue="application/x-www-form-urlencoded">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accept-charset">
+        <ref name="Charsets.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accept">
+        <ref name="ContentTypes.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of form.attlist -->
+  <!-- label: Form Field Label Text ...................... -->
+  <!-- Each label must not contain more than ONE field -->
+  <define name="label.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="input"/>
+        <ref name="select"/>
+        <ref name="textarea"/>
+        <ref name="button"/>
+        <ref name="InlStruct.class"/>
+        <ref name="InlPhras.class"/>
+        <ref name="I18n.class"/>
+        <ref name="InlPres.class"/>
+        <ref name="Anchor.class"/>
+        <ref name="InlSpecial.class"/>
+        <ref name="Inline.extra"/>
+        <ref name="Misc.class"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="label">
+    <element name="label">
+      <ref name="label.attlist"/>
+      <ref name="label.content"/>
+    </element>
+  </define>
+  <!-- end of label.element -->
+  <define name="label.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="for">
+        <data type="IDREF"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of label.attlist -->
+  <!-- input: Form Control ............................... -->
+  <define name="input.content">
+    <empty/>
+  </define>
+  <define name="input">
+    <element name="input">
+      <ref name="input.attlist"/>
+      <ref name="input.content"/>
+    </element>
+  </define>
+  <!-- end of input.element -->
+  <define name="InputType.class">
+    <choice>
+      <value>text</value>
+      <value>password</value>
+      <value>checkbox</value>
+      <value>radio</value>
+      <value>submit</value>
+      <value>reset</value>
+      <value>file</value>
+      <value>hidden</value>
+      <value>image</value>
+      <value>button</value>
+    </choice>
+  </define>
+  <!-- attribute 'name' required for all but submit & reset -->
+  <define name="input.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="type" a:defaultValue="text">
+        <ref name="InputType.class"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="name"/>
+    </optional>
+    <optional>
+      <attribute name="value"/>
+    </optional>
+    <optional>
+      <attribute name="checked">
+        <choice>
+          <value>checked</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="disabled">
+        <choice>
+          <value>disabled</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="readonly">
+        <choice>
+          <value>readonly</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="size">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="maxlength">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="src">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="alt">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accept">
+        <ref name="ContentTypes.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of input.attlist -->
+  <!-- select: Option Selector ........................... -->
+  <define name="select.content">
+    <oneOrMore>
+      <choice>
+        <ref name="optgroup"/>
+        <ref name="option"/>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="select">
+    <element name="select">
+      <ref name="select.attlist"/>
+      <ref name="select.content"/>
+    </element>
+  </define>
+  <!-- end of select.element -->
+  <define name="select.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="name"/>
+    </optional>
+    <optional>
+      <attribute name="size">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="multiple">
+        <choice>
+          <value>multiple</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="disabled">
+        <choice>
+          <value>disabled</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of select.attlist -->
+  <!-- optgroup: Option Group ............................ -->
+  <define name="optgroup.content">
+    <oneOrMore>
+      <ref name="option"/>
+    </oneOrMore>
+  </define>
+  <define name="optgroup">
+    <element name="optgroup">
+      <ref name="optgroup.attlist"/>
+      <ref name="optgroup.content"/>
+    </element>
+  </define>
+  <!-- end of optgroup.element -->
+  <define name="optgroup.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="disabled">
+        <choice>
+          <value>disabled</value>
+        </choice>
+      </attribute>
+    </optional>
+    <attribute name="label">
+      <ref name="Text.datatype"/>
+    </attribute>
+  </define>
+  <!-- end of optgroup.attlist -->
+  <!-- option: Selectable Choice ......................... -->
+  <define name="option.content">
+    <text/>
+  </define>
+  <define name="option">
+    <element name="option">
+      <ref name="option.attlist"/>
+      <ref name="option.content"/>
+    </element>
+  </define>
+  <!-- end of option.element -->
+  <define name="option.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="selected">
+        <choice>
+          <value>selected</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="disabled">
+        <choice>
+          <value>disabled</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="label">
+        <ref name="Text.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="value"/>
+    </optional>
+  </define>
+  <!-- end of option.attlist -->
+  <!-- textarea: Multi-Line Text Field ................... -->
+  <define name="textarea.content">
+    <text/>
+  </define>
+  <define name="textarea">
+    <element name="textarea">
+      <ref name="textarea.attlist"/>
+      <ref name="textarea.content"/>
+    </element>
+  </define>
+  <!-- end of textarea.element -->
+  <define name="textarea.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="name"/>
+    </optional>
+    <attribute name="rows">
+      <ref name="Number.datatype"/>
+    </attribute>
+    <attribute name="cols">
+      <ref name="Number.datatype"/>
+    </attribute>
+    <optional>
+      <attribute name="disabled">
+        <choice>
+          <value>disabled</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="readonly">
+        <choice>
+          <value>readonly</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of textarea.attlist -->
+  <!-- fieldset: Form Control Group ...................... -->
+  <!--
+    #PCDATA is to solve the mixed content problem,
+    per specification only whitespace is allowed
+  -->
+  <define name="fieldset.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="legend"/>
+        <ref name="Flow.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="fieldset">
+    <element name="fieldset">
+      <ref name="fieldset.attlist"/>
+      <ref name="fieldset.content"/>
+    </element>
+  </define>
+  <!-- end of fieldset.element -->
+  <define name="fieldset.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of fieldset.attlist -->
+  <!-- legend: Fieldset Legend ........................... -->
+  <define name="legend.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="Inline.mix"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="legend">
+    <element name="legend">
+      <ref name="legend.attlist"/>
+      <ref name="legend.content"/>
+    </element>
+  </define>
+  <!-- end of legend.element -->
+  <define name="legend.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of legend.attlist -->
+  <!-- button: Push Button ............................... -->
+  <define name="button.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="BlkNoForm.mix"/>
+        <ref name="InlStruct.class"/>
+        <ref name="InlPhras.class"/>
+        <ref name="InlPres.class"/>
+        <ref name="I18n.class"/>
+        <ref name="InlSpecial.class"/>
+        <ref name="Inline.extra"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="button">
+    <element name="button">
+      <ref name="button.attlist"/>
+      <ref name="button.content"/>
+    </element>
+  </define>
+  <!-- end of button.element -->
+  <define name="button.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+    <optional>
+      <attribute name="name"/>
+    </optional>
+    <optional>
+      <attribute name="value"/>
+    </optional>
+    <optional>
+      <attribute name="type" a:defaultValue="submit">
+        <choice>
+          <value>button</value>
+          <value>submit</value>
+          <value>reset</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="disabled">
+        <choice>
+          <value>disabled</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="tabindex">
+        <ref name="Number.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="accesskey">
+        <ref name="Character.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- end of button.attlist -->
+  <!-- end of xhtml-form-1.mod -->
+  <!-- Legacy Markup ............................................... -->
+  <!-- Document Structure Module (required)  ....................... -->
+  <!-- ...................................................................... -->
+  <!-- XHTML Structure Module  .............................................. -->
+  <!--
+    file: xhtml-struct-1.mod
+    
+    This is XHTML, a reformulation of HTML as a modular XML application.
+    Copyright 1998-2001 W3C (MIT, INRIA, Keio), All Rights Reserved.
+    Revision: $Id: xhtml-struct-1.mod,v 4.0 2001/04/02 22:42:49 altheim Exp $ SMI
+    
+    This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+    
+      PUBLIC "-//W3C//ELEMENTS XHTML Document Structure 1.0//EN"
+      SYSTEM "http://www.w3.org/TR/xhtml-modularization/DTD/xhtml-struct-1.mod"
+    
+    Revisions:
+    (none)
+    .......................................................................
+  -->
+  <!--
+    Document Structure
+    
+       title, head, body, html
+    
+    The Structure Module defines the major structural elements and
+    their attributes.
+    
+    Note that the content model of the head element type is redeclared
+    when the Base Module is included in the DTD.
+    
+    The parameter entity containing the XML namespace URI value used
+    for XHTML is '%XHTML.xmlns;', defined in the Qualified Names module.
+  -->
+  <!-- title: Document Title ............................. -->
+  <!--
+    The title element is not considered part of the flow of text.
+    It should be displayed, for example as the page header or
+    window title. Exactly one title is required per document.
+  -->
+  <define name="title.content">
+    <text/>
+  </define>
+  <define name="title">
+    <element name="title">
+      <ref name="title.attlist"/>
+      <ref name="title.content"/>
+    </element>
+  </define>
+  <!-- end of title.element -->
+  <define name="title.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="I18n.attrib"/>
+  </define>
+  <!-- end of title.attlist -->
+  <!-- head: Document Head ............................... -->
+  <define name="head">
+    <element name="head">
+      <ref name="head.attlist"/>
+      <ref name="head.content"/>
+    </element>
+  </define>
+  <!-- end of head.element -->
+  <!-- reserved for future use with document profiles -->
+  <define name="profile.attrib">
+    <optional>
+      <attribute name="profile" a:defaultValue="">
+        <ref name="URI.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="head.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="I18n.attrib"/>
+    <ref name="profile.attrib"/>
+  </define>
+  <!-- end of head.attlist -->
+  <!-- body: Document Body ............................... -->
+  <define name="body.content">
+    <oneOrMore>
+      <ref name="Block.mix"/>
+    </oneOrMore>
+  </define>
+  <define name="body">
+    <element name="body">
+      <ref name="body.attlist"/>
+      <ref name="body.content"/>
+    </element>
+  </define>
+  <!-- end of body.element -->
+  <define name="body.attlist" combine="interleave">
+    <ref name="Common.attrib"/>
+  </define>
+  <!-- end of body.attlist -->
+  <!-- html: XHTML Document Element ...................... -->
+  <define name="html.content">
+    <ref name="head"/>
+    <ref name="body"/>
+  </define>
+  <define name="html">
+    <element name="html">
+      <ref name="html.attlist"/>
+      <ref name="html.content"/>
+    </element>
+  </define>
+  <!-- end of html.element -->
+  <!-- version attribute value defined in driver -->
+  <define name="XHTML.version.attrib">
+    <optional>
+      <attribute name="version" a:defaultValue="-//W3C//DTD XHTML 1.1//EN">
+        <value type="string" datatypeLibrary="">-//W3C//DTD XHTML 1.1//EN</value>
+      </attribute>
+    </optional>
+  </define>
+  <!--
+    see the Qualified Names module for information
+    on how to extend XHTML using XML namespaces
+  -->
+  <define name="html.attlist" combine="interleave">
+    <ref name="XHTML.xmlns.attrib"/>
+    <ref name="XHTML.version.attrib"/>
+    <ref name="I18n.attrib"/>
+  </define>
+  <start>
+    <choice>
+      <ref name="html"/>
+    </choice>
+  </start>
+</grammar>
+<!-- end of html.attlist -->
+<!-- end of xhtml-struct-1.mod -->
+<!-- end of XHTML 1.1 DTD  ................................................. -->
+<!-- ....................................................................... -->

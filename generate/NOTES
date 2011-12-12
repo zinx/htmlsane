@@ -1,0 +1,7 @@
+This does not strictly match Relax NG's behavior, in particular:
+	<empty/> must always be explicitly stated, and if present means
+		the element has no content.
+
+	<text/> does not match empty text
+
+	... and probably some more differences.
